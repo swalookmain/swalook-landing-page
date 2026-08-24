@@ -4,11 +4,11 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 16px 0;
+  /* padding: 16px 0; */
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  /* -webkit-backdrop-filter: blur(16px); */
 }
 
 .scrolled {
@@ -214,7 +214,7 @@
     z-index: 999;
     border-left: 1px solid var(--border-color);
     overflow-y: auto;
-    box-shadow: -8px 0 30px rgba(0,0,0,0.08);
+    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.08);
   }
 
   .mobileMenuOpen {
