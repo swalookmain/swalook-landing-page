@@ -109,21 +109,21 @@ export default function ContactPage() {
             <div className={contactStyles.contactCard}>
               <div className={contactStyles.cardIcon}><FiMail /></div>
               <h3>Email</h3>
-              <p>support@swalook.in</p>
+              <p><a className={contactStyles.contactLink} href="mailto:info@swalook.in">info@swalook.in</a></p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className={contactStyles.contactCard}>
               <div className={contactStyles.cardIcon}><FiMail /></div>
               <h3>Sales</h3>
-              <p>sales@swalook.in</p>
+              <p><a className={contactStyles.contactLink} href="mailto:sales@swalook.in">sales@swalook.in</a></p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className={contactStyles.contactCard}>
               <div className={contactStyles.cardIcon}><FiPhone /></div>
               <h3>Phone</h3>
-              <p>+91-XXXXXXXXXX</p>
+              <p><a className={contactStyles.contactLink} href="tel:+919870103761">+91 98701 03761</a></p>
             </div>
           </StaggerItem>
         </StaggerContainer>

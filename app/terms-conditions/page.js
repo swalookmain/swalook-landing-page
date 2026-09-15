@@ -44,7 +44,7 @@ export default function TermsConditions() {
               <li>You must be at least 18 years of age to use the Service.</li>
               <li>You represent that you are a legally operating business entity or an individual authorized to enter into this agreement.</li>
               <li>You agree to provide accurate, current, and complete registration information and keep it updated.</li>
-              <li>You are responsible for all activity under your Account. Notify us immediately at <a href="mailto:support@swalook.in">support@swalook.in</a> if you suspect unauthorized use.</li>
+              <li>You are responsible for all activity under your Account. Notify us immediately at <a href="mailto:info@swalook.in">info@swalook.in</a> if you suspect unauthorized use.</li>
             </ul>
 
             <h2>3. Subscription and Billing</h2>
@@ -115,7 +115,7 @@ export default function TermsConditions() {
 
             <h2>11. Termination</h2>
             <ul>
-              <li><strong>By You:</strong> You may terminate your Account at any time via the dashboard or by emailing <a href="mailto:support@swalook.in">support@swalook.in</a>. Termination takes effect at the end of your current billing cycle.</li>
+              <li><strong>By You:</strong> You may terminate your Account at any time via the dashboard or by emailing <a href="mailto:info@swalook.in">info@swalook.in</a>. Termination takes effect at the end of your current billing cycle.</li>
               <li><strong>By Us:</strong> We may suspend or terminate your access if you breach these Terms, fail to pay fees, or if we suspect fraudulent/illegal activity. We will notify you and provide 7 days to remedy the breach where possible.</li>
               <li><strong>Effect:</strong> Upon termination, your access to the Service ceases. We will provide an export of your Customer Data within 30 days of request. After 90 days, your data will be permanently deleted unless retention is required by law.</li>
             </ul>
@@ -151,7 +151,7 @@ export default function TermsConditions() {
             <p>For any questions regarding these Terms:</p>
             <ul>
               <li>Email: <a href="mailto:legal@swalook.in">legal@swalook.in</a></li>
-              <li>Support: <a href="mailto:support@swalook.in">support@swalook.in</a></li>
+              <li>Support: <a href="mailto:info@swalook.in">info@swalook.in</a></li>
               <li>Address: SWALOOK GLOBAL PRIVATE LIMITED, Aishwaryam, Gaur City-2, Greater Noida West, Sector 16C, Noida, Gautam Buddha Nagar, Uttar Pradesh — 201301</li>
             </ul>
           </div>

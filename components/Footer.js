@@ -86,11 +86,11 @@ export default function Footer() {
             <h4>Contact Us</h4>
             <div className={styles.contactItem}>
               <FiPhone className={styles.contactIcon} />
-              <span>+91 98701 03761</span>
+              <a href="tel:+919870103761">+91 98701 03761</a>
             </div>
             <div className={styles.contactItem}>
               <FiMail className={styles.contactIcon} />
-              <span>info@swalook.in</span>
+              <a href="mailto:info@swalook.in">info@swalook.in</a>
             </div>
             <div className={styles.contactItem}>
               <FiMapPin className={styles.contactIcon} />

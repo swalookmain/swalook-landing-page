@@ -69,7 +69,7 @@ export default function ShippingPolicy() {
             <h2>6. Contact Us</h2>
             <p>If you have any questions about this Shipping Policy:</p>
             <ul>
-              <li>Email: <a href="mailto:support@swalook.in">support@swalook.in</a></li>
+              <li>Email: <a href="mailto:info@swalook.in">info@swalook.in</a></li>
               <li>Website: <a href="https://swalook.in">https://swalook.in</a></li>
             </ul>
           </div>

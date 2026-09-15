@@ -8,6 +8,8 @@
 .contactCard:hover .cardIcon { background: var(--primary); color: #fff; }
 .contactCard h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; color: var(--text-heading); }
 .contactCard p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6; }
+.contactLink { color: inherit; transition: color 0.3s ease; }
+.contactLink:hover { color: var(--primary); }
 
 .formSection { padding: var(--section-padding); background: var(--bg-section-alt); }
 .formGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; max-width: 1200px; margin: 0 auto; padding: 0 24px; align-items: start; }
