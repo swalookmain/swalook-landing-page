@@ -32,7 +32,7 @@ export default function CancellationPolicy() {
 
             <h2>1. Subscription Cancellation by You</h2>
             <ul>
-              <li>You may cancel your Swalook subscription at any time through your account dashboard or by emailing <a href="mailto:support@swalook.in">support@swalook.in</a>.</li>
+              <li>You may cancel your Swalook subscription at any time through your account dashboard or by emailing <a href="mailto:info@swalook.in">info@swalook.in</a>.</li>
               <li>Cancellation takes effect at the end of your current billing cycle (monthly or annual). You will retain full access to the Service until the end of the paid period.</li>
               <li>No partial refunds are provided for unused days within a billing cycle, except as specified in Section 5 (Cooling-Off Period) or Section 7 (Service Downtime).</li>
             </ul>
@@ -81,7 +81,7 @@ export default function CancellationPolicy() {
             <h2>8. Data Export After Cancellation</h2>
             <ul>
               <li>Upon cancellation, your access ends at the conclusion of the current billing period.</li>
-              <li>You may request a data export of your Customer Data (appointments, client list, invoices, etc.) within 30 days of cancellation by emailing <a href="mailto:support@swalook.in">support@swalook.in</a>.</li>
+              <li>You may request a data export of your Customer Data (appointments, client list, invoices, etc.) within 30 days of cancellation by emailing <a href="mailto:info@swalook.in">info@swalook.in</a>.</li>
               <li>After 90 days from cancellation, all your data will be permanently deleted from our systems unless retention is required by law.</li>
             </ul>
 
@@ -95,7 +95,7 @@ export default function CancellationPolicy() {
             <h2>10. Contact Us</h2>
             <p>For cancellation requests, refund inquiries, or questions about this policy:</p>
             <ul>
-              <li>Email: <a href="mailto:support@swalook.in">support@swalook.in</a></li>
+              <li>Email: <a href="mailto:info@swalook.in">info@swalook.in</a></li>
               <li>Website: <a href="https://swalook.in">https://swalook.in</a></li>
             </ul>
           </div>

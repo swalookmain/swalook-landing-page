@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Swalook Blog</title>
+    <link>https://swalook.in/blogs</link>
+    <description>CRM, marketing, and growth insights for salon owners</description>
+    <language>en</language>
+    <lastBuildDate>Tue, 15 Sep 2026 05:29:48 GMT</lastBuildDate>
+    <atom:link href="https://swalook.in/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>7 Key Factors When Choosing Salon CRM Software</title>
+      <link>https://swalook.in/blog/7-key-factors-for-choosing-salon-crm-software</link>
+      <description>A clean framework for comparing salon CRM tools based on retention, automation, reporting, and team workflow.</description>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://swalook.in/blog/7-key-factors-for-choosing-salon-crm-software</guid>
+    </item>
+    <item>
+      <title>Why Salons Need CRM Software: Swalook Solutions</title>
+      <link>https://swalook.in/blog/why-salons-fall-behind-without-crm-software</link>
+      <description>Understand why manual operations stall growth and how a CRM can create a more organized salon system.</description>
+      <pubDate>Sat, 10 Jan 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://swalook.in/blog/why-salons-fall-behind-without-crm-software</guid>
+    </item>
+    <item>
+      <title>Integrated Marketing for Salons with Swalook CRM</title>
+      <link>https://swalook.in/blog/the-importance-of-integrated-marketing</link>
+      <description>See how retention marketing, offers, and audience segmentation work together.</description>
+      <pubDate>Wed, 07 Jan 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://swalook.in/blog/the-importance-of-integrated-marketing</guid>
+    </item>
+    <item>
+      <title>How to Automate Your Salon Marketing with Swalook</title>
+      <link>https://swalook.in/blog/how-to-automate-your-salon-marketing-with-swalook</link>
+      <description>A practical breakdown of automated campaigns and follow-ups.</description>
+      <pubDate>Fri, 02 Jan 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://swalook.in/blog/how-to-automate-your-salon-marketing-with-swalook</guid>
+    </item>
+  </channel>
+</rss>

@@ -142,6 +142,15 @@
   flex-shrink: 0;
 }
 
+.contactItem a {
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.contactItem a:hover {
+  color: var(--primary-light);
+}
+
 .footerBottom {
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding: 22px 0;
