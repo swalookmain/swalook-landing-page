@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node scripts/generate-sitemap.mjs && node scripts/generate-feed.mjs && node scripts/generate-redirects.mjs",
     "start": "next start",
     "lint": "eslint . --max-warnings 500",
     "typecheck": "tsc --noEmit --pretty",
