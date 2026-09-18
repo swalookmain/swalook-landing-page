@@ -85,11 +85,6 @@ export default function BlogsPage() {
       <section className={styles.blogsSection}>
         <div className={styles.blogsInner}>
           <div className={styles.toolbar}>
-            <BlogCategoryTabs
-              categories={tabs}
-              activeCategory={activeCategory}
-              onChange={setActiveCategory}
-            />
             <label className={styles.searchBox}>
               <FiSearch aria-hidden="true" />
               <span className="sr-only">Search articles</span>
@@ -97,9 +92,14 @@ export default function BlogsPage() {
                 type="search"
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event.target.value)}
-                placeholder="Search salon CRM, marketing, billing..."
+                placeholder="Search articles on salon CRM, marketing, billing..."
               />
             </label>
+            <BlogCategoryTabs
+              categories={tabs}
+              activeCategory={activeCategory}
+              onChange={setActiveCategory}
+            />
           </div>
 
           <BlogPostGrid

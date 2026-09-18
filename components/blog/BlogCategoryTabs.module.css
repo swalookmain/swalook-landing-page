@@ -1,6 +1,6 @@
 .tabs {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
 }
 
@@ -8,8 +8,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 40px;
-  padding: 0 16px;
+  min-height: 42px;
+  padding: 0 12px;
+  text-align: center;
+  white-space: nowrap;
   border-radius: var(--radius-full);
   border: 1px solid var(--border-color);
   background: rgba(255, 255, 255, 0.95);
@@ -35,6 +37,12 @@
   border-color: var(--primary);
   color: #ffffff;
   box-shadow: 0 10px 20px rgba(0, 188, 212, 0.22);
+}
+
+@media (max-width: 1023px) {
+  .tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 768px) {
