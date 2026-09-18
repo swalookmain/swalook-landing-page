@@ -18,13 +18,16 @@ function escapeHtml(value) {
 export async function POST(request) {
   try {
     const body = await request.json();
-    const fullName = clean(body.fullName, 120);
+    const name = clean(body.name, 120);
+    const salonName = clean(body.salonName, 160);
     const mobile = clean(body.mobile, 40);
     const email = clean(body.email, 254);
-    const businessName = clean(body.businessName, 160);
+    const city = clean(body.city, 80);
+    const branches = clean(body.branches, 20);
+    const currentSoftware = clean(body.currentSoftware, 160);
     const message = clean(body.message, 2000);
 
-    if (!fullName || !mobile || !email || !businessName) {
+    if (!name || !salonName || !mobile || !email) {
       return NextResponse.json({ error: 'Please complete all required fields.' }, { status: 400 });
     }
 
@@ -38,10 +41,13 @@ export async function POST(request) {
     }
 
     const fields = [
-      ['Full name', fullName],
-      ['Mobile number', mobile],
-      ['Email address', email],
-      ['Business name', businessName],
+      ['Name', name],
+      ['Salon name', salonName],
+      ['Phone number', mobile],
+      ['Email', email],
+      ['City', city || 'Not provided'],
+      ['Number of branches', branches || 'Not provided'],
+      ['Current software', currentSoftware || 'Not provided'],
       ['Message', message || 'Not provided'],
     ];
     const text = fields.map(([label, value]) => `${label}: ${value}`).join('\n');
@@ -59,9 +65,9 @@ export async function POST(request) {
         from: process.env.RESEND_FROM_EMAIL,
         to: [RECIPIENT],
         reply_to: email,
-        subject: `New contact enquiry from ${fullName}`,
+        subject: `New demo request from ${name} (${salonName})`,
         text,
-        html: `<h2>New contact enquiry</h2>${html}`,
+        html: `<h2>New demo request</h2>${html}`,
       }),
     });
 
