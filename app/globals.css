@@ -106,6 +106,25 @@ body {
   min-height: 100vh;
 }
 
+/* Slide-in animations start 40px off-axis; clip them so phones don't get a wider page.
+   `clip` (unlike `hidden`) doesn't create a scroll container, so sticky elements keep working. */
+main {
+  overflow-x: clip;
+}
+
+/* Visually hidden, still read by screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -244,7 +263,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-size: clamp(1.75rem, 2.8vw, 2.25rem);
   font-weight: 700;
   margin-bottom: 16px;
   color: var(--text-heading);
@@ -297,6 +316,9 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--gradient-primary);
   color: #fff;
   box-shadow: var(--shadow-primary);
+  /* same 2px border box as .btn-outline so paired buttons are the same height */
+  border: 2px solid transparent;
+  background-origin: border-box;
 }
 
 .btn-primary:hover {
@@ -348,8 +370,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-lg {
-  padding: 16px 38px;
-  font-size: 0.98rem;
+  padding: 14px 32px;
+  font-size: 0.95rem;
   border-radius: var(--radius-full);
 }
 
@@ -725,7 +747,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .section-title {
-    font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+    font-size: clamp(1.75rem, 2.8vw, 2.25rem);
   }
 
   .heading-xl {
