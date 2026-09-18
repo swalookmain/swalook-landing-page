@@ -1,34 +1,58 @@
 'use client';
 
 import Link from 'next/link';
-import { FaFacebookF, FaXTwitter, FaYoutube, FaLinkedinIn, FaInstagram } from 'react-icons/fa6';
+import { FaFacebookF, FaYoutube, FaLinkedinIn, FaInstagram } from 'react-icons/fa6';
 import { FiPhone, FiMail, FiMapPin } from 'react-icons/fi';
 import styles from './Footer.module.css';
 
 export default function Footer() {
-  const crmLinks = [
-    { label: 'CRM Features', href: '/salon-crm-features' },
-    { label: 'Appointment Scheduling', href: '/salon-appointment-scheduling-software' },
-    { label: 'Dashboard Software', href: '/salon-dashboard-software' },
-    { label: 'Marketing Templates', href: '/salon-marketing-templates' },
-    { label: 'Analytics Software', href: '/salon-analytics-software' },
-    { label: 'Inventory Management', href: '/salon-inventory-management-software' },
-    { label: 'Mobile Apps', href: '/mobile-app' },
-  ];
-
-  const quickLinks = [
-    { label: 'Home', href: '/' },
-    { label: 'About Us', href: '/about' },
-    { label: 'Products', href: '/salon-crm-features' },
-    { label: 'Contact Us', href: '/contact' },
-    { label: 'Blogs', href: '/blogs' },
-    { label: 'FAQ', href: '/faq' },
-    { label: 'Careers', href: '/careers' },
+  const linkColumns = [
+    {
+      title: 'Product',
+      links: [
+        { label: 'Swalook CRM', href: '/salon-crm-features' },
+        { label: 'Mobile App', href: '/mobile-app' },
+      ],
+    },
+    {
+      title: 'Growth',
+      links: [
+        { label: 'Customer Acquisition', href: '/customer-acquisition' },
+        { label: 'Customer Retention', href: '/customer-retention' },
+        { label: 'WhatsApp Marketing', href: '/whatsapp-marketing' },
+        { label: 'Salon Marketing', href: '/salon-marketing-templates' },
+        { label: 'Inquiry Management', href: '/salon-inquiry-management' },
+        { label: 'Multi-Branch', href: '/multi-branch-salon-software' },
+      ],
+    },
+    {
+      title: 'Company',
+      links: [
+        { label: 'About', href: '/about' },
+        { label: 'Contact', href: '/contact' },
+        { label: 'Careers', href: '/careers' },
+      ],
+    },
+    {
+      title: 'Resources',
+      links: [
+        { label: 'Blog', href: '/blogs' },
+        { label: 'FAQs', href: '/faq' },
+      ],
+    },
+    {
+      title: 'Legal',
+      links: [
+        { label: 'Privacy Policy', href: '/privacy-policy' },
+        { label: 'Terms & Conditions', href: '/terms-conditions' },
+        { label: 'Cancellation Policy', href: '/cancellation-policy' },
+        { label: 'Shipping Policy', href: '/shipping-policy' },
+      ],
+    },
   ];
 
   const socialLinks = [
     { icon: <FaFacebookF />, href: 'https://www.facebook.com/people/SwaLook/100082780576167/', label: 'Facebook' },
-    { icon: <FaXTwitter />, href: 'https://twitter.com/home', label: 'Twitter' },
     { icon: <FaYoutube />, href: 'https://www.youtube.com/channel/UCQj9_wk87-iDb9h9TdxjHYg', label: 'YouTube' },
     { icon: <FaLinkedinIn />, href: 'https://www.linkedin.com/company/swalook/', label: 'LinkedIn' },
     { icon: <FaInstagram />, href: 'https://www.instagram.com/swalook_official/', label: 'Instagram' },
@@ -42,9 +66,20 @@ export default function Footer() {
           <div className={styles.footerBrand}>
             <Link href="/" className={styles.footerLogo}>Swalook</Link>
             <p className={styles.footerTagline}>
-              Explore the potential of your business with Swalook CRM Solution. 
-              Streamline your salon operations and elevate customer experience.
+              The CRM Built to Grow Your Salon
             </p>
+            <div className={styles.contactItem}>
+              <FiPhone className={styles.contactIcon} />
+              <a href="tel:+919870103761">+91 98701 03761</a>
+            </div>
+            <div className={styles.contactItem}>
+              <FiMail className={styles.contactIcon} />
+              <a href="mailto:info@swalook.in">info@swalook.in</a>
+            </div>
+            <div className={styles.contactItem}>
+              <FiMapPin className={styles.contactIcon} />
+              <span>Greater Noida (West), Uttar Pradesh, 201009</span>
+            </div>
             <div className={styles.socialLinks}>
               {socialLinks.map((social) => (
                 <a
@@ -61,42 +96,16 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* CRM Features */}
-          <div className={styles.footerColumn}>
-            <h4>CRM Features</h4>
-            {crmLinks.map((link) => (
-              <Link key={link.label} href={link.href} className={styles.footerLink}>
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          {/* Quick Links */}
-          <div className={styles.footerColumn}>
-            <h4>Quick Links</h4>
-            {quickLinks.map((link) => (
-              <Link key={link.label} href={link.href} className={styles.footerLink}>
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          {/* Contact Info */}
-          <div className={styles.footerColumn}>
-            <h4>Contact Us</h4>
-            <div className={styles.contactItem}>
-              <FiPhone className={styles.contactIcon} />
-              <a href="tel:+919870103761">+91 98701 03761</a>
+          {linkColumns.map((column) => (
+            <div key={column.title} className={styles.footerColumn}>
+              <h4>{column.title}</h4>
+              {column.links.map((link) => (
+                <Link key={link.label} href={link.href} className={styles.footerLink}>
+                  {link.label}
+                </Link>
+              ))}
             </div>
-            <div className={styles.contactItem}>
-              <FiMail className={styles.contactIcon} />
-              <a href="mailto:info@swalook.in">info@swalook.in</a>
-            </div>
-            <div className={styles.contactItem}>
-              <FiMapPin className={styles.contactIcon} />
-              <span>Greater Noida (West), Uttar Pradesh, 201009</span>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
@@ -106,12 +115,9 @@ export default function Footer() {
           <p className={styles.copyright}>
             © {new Date().getFullYear()} Swalook Global Pvt. Ltd. All rights reserved.
           </p>
-          <div className={styles.policyLinks}>
-            <Link href="/terms-conditions" className={styles.policyLink}>Terms & Conditions</Link>
-            <Link href="/privacy-policy" className={styles.policyLink}>Privacy Policy</Link>
-            <Link href="/cancellation-policy" className={styles.policyLink}>Cancellation Policy</Link>
-            <Link href="/shipping-policy" className={styles.policyLink}>Shipping Policy</Link>
-          </div>
+          <p className={styles.copyright}>
+            Manage your salon. Understand your customers. Grow your business.
+          </p>
         </div>
       </div>
     </footer>
