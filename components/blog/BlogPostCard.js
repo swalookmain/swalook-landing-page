@@ -31,7 +31,6 @@ export default function BlogPostCard({ post, featured: isFeatured }) {
         </div>
       ) : (
         <div className={styles.imageWrap}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={post.coverImage || post.ogImage}
             alt={post.imageAlt || `${post.title} cover`}
