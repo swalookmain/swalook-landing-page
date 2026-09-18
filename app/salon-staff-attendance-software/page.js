@@ -1,31 +1,39 @@
-'use client';
 import { FiUsers } from 'react-icons/fi';
 import FeaturePage from '@/components/FeaturePage';
+
+const path = '/salon-staff-attendance-software';
+const title = 'Salon Staff Management Software | Swalook';
+const description = 'Salon staff management software to manage your team\'s profiles, attendance, shifts, performance and commissions from one place, with simple staff reports.';
+
+export const metadata = {
+  title,
+  description,
+  alternates: { canonical: path },
+  openGraph: { title, description, url: path, siteName: 'Swalook', type: 'website', locale: 'en_IN', images: ['/swalook-logo.webp'] },
+  twitter: { card: 'summary_large_image', title, description, images: ['/swalook-logo.webp'] },
+};
 
 export default function StaffPage() {
   return (
     <FeaturePage
       currentSlug="salon-staff-attendance-software"
       icon={<FiUsers />}
-      title="Smart Salon Staff & Attendance Management"
-      heroDesc="Manage roles, shifts, and staff performance with Swalook's salon staff & attendance software. Ensure accurate payroll and smooth operations."
-      whyTitle="Why Staff Management Matters"
-      whyDesc="Your team is your greatest asset. Swalook helps you manage schedules, track attendance, measure performance, and ensure everyone is aligned with your salon's goals."
+      title="Salon Staff Management Made Simple"
+      heroDesc="Manage your salon team, attendance and performance from one place."
       keyFeatures={[
-        { title: 'Role Management', desc: 'Define roles, permissions, and responsibilities for each team member.' },
-        { title: 'Shift Scheduling', desc: 'Create and manage staff shifts with an intuitive calendar view.' },
-        { title: 'Attendance Tracking', desc: 'Digital check-in/check-out for accurate attendance records.' },
-        { title: 'Performance Metrics', desc: 'Track revenue, bookings, and ratings per stylist.' },
-        { title: 'Payroll Integration', desc: 'Connect attendance data to payroll for accurate compensation.' },
+        { title: 'Staff Profiles', desc: 'Keep each team member\'s details and role in one place.' },
+        { title: 'Attendance', desc: 'Record daily check-in and check-out for every staff member.' },
+        { title: 'Shifts', desc: 'Plan and manage staff shifts.' },
+        { title: 'Performance', desc: 'See the bookings, services and revenue each stylist brings in.' },
+        { title: 'Commissions', desc: 'Work out staff commissions from the services they do.' },
+        { title: 'Staff Reports', desc: 'See attendance and performance for your whole team.' },
       ]}
-      compareTitle="Why Choose Swalook for Staff Management?"
-      compareDesc="Generic HR tools don't understand salon workflows. Swalook connects staff management directly to appointments, services, and client feedback."
-      withPoints={[
-        'Organize your team with clear roles and shifts.',
-        'Track attendance digitally for accurate payroll.',
-        'Measure and improve staff performance.',
+      related={[
+        { href: '/salon-management-software', label: 'Salon Management Software' },
+        { href: '/salon-appointment-scheduling-software', label: 'Appointments' },
+        { href: '/salon-analytics-software', label: 'Analytics' },
+        { href: '/multi-branch-salon-software', label: 'Multi-Branch' },
       ]}
-      withCta="Ready to manage your salon team more effectively? Start your journey with Swalook."
     />
   );
 }

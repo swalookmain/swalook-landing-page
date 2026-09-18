@@ -10,6 +10,19 @@
 .whyContent { max-width: 900px; margin: 0 auto; padding: 0 24px; }
 .whyContent h2 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; margin-bottom: 16px; color: var(--text-heading); }
 .whyContent p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; font-size: 0.95rem; }
+.introOnly { padding: 60px 0; }
+.introOnly .whyContent { text-align: center; }
+.introOnly .whyContent p { font-size: 1.02rem; margin-bottom: 12px; }
+.introOnly .whyContent p:last-child { margin-bottom: 0; }
+
+.flowSection { padding: var(--section-padding); background: var(--bg-white); }
+.stepsRow { list-style: none; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+.stepChip { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px 10px 10px; border: 1px solid; border-radius: var(--radius-full); font-size: 0.95rem; font-weight: 600; box-shadow: var(--shadow-xs); }
+.stepNum { width: 26px; height: 26px; border-radius: 50%; color: #fff; font-size: 0.78rem; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.stepArrow { display: inline-flex; font-size: 1.1rem; opacity: 0.7; }
+.flowCol { list-style: none; display: flex; flex-direction: column; align-items: center; gap: 6px; max-width: 360px; margin: 0 auto; padding: 0 24px; }
+.flowBox { width: 100%; text-align: center; padding: 12px 18px; border: 1px solid; border-radius: var(--radius-md); font-size: 0.95rem; font-weight: 600; box-shadow: var(--shadow-xs); }
+.flowArrow { display: inline-flex; font-size: 1.1rem; opacity: 0.7; }
 
 .keyFeatures { padding: var(--section-padding); background: var(--bg-section-alt); }
 .featuresGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
@@ -36,10 +49,14 @@
 .otherCard { display: flex; align-items: center; gap: 10px; padding: 14px 16px; background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-md); font-size: 0.85rem; font-weight: 500; color: var(--text-secondary); transition: all 0.3s ease; box-shadow: var(--shadow-xs); }
 .otherCard:hover { border-color: var(--border-hover); color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
 .otherIcon { color: var(--primary); flex-shrink: 0; }
+.relatedGrid { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+.relatedGrid > * { flex: 0 1 220px; }
 
 @media (max-width: 768px) { .featuresGrid { grid-template-columns: 1fr; } .otherGrid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 480px) { .otherGrid { grid-template-columns: 1fr; } .featureHero { padding: 130px 0 40px; } .featureHeroIcon { width: 56px; height: 56px; font-size: 1.4rem; } }
+@media (max-width: 768px) { .relatedGrid > * { flex: 1 1 calc(50% - 6px); } .stepsRow { gap: 8px; } .stepChip { font-size: 0.88rem; padding: 8px 14px 8px 8px; } }
+@media (max-width: 480px) { .otherGrid { grid-template-columns: 1fr; } .relatedGrid > * { flex-basis: 100%; } .featureHero { padding: 130px 0 40px; } .featureHeroIcon { width: 56px; height: 56px; font-size: 1.4rem; } .introOnly { padding: 40px 0; } .stepsRow, .flowCol { padding: 0 16px; } }
 @media (max-width: 359px) { .fCard { padding: 14px; } .fCardIcon { width: 30px; height: 30px; font-size: 0.85rem; } .featureHero { padding: 100px 0 24px; } .featureHeroIcon { width: 42px; height: 42px; font-size: 1.1rem; } .featureHeroTitle { font-size: clamp(1.3rem, 7vw, 1.6rem); } .featureHeroDesc { font-size: 0.88rem; } .otherGrid { grid-template-columns: 1fr; gap: 8px; } .otherCard { padding: 10px 12px; font-size: 0.82rem; } .featuresGrid { gap: 14px; } .whyContent { padding: 0 12px; } .whyContent h2 { font-size: 1.2rem; } .whyContent p { font-size: 0.88rem; } .compareContent { padding: 0 12px; } .withContent { padding: 0 12px; } .withItem { font-size: 0.86rem; } }
 @media (max-width: 279px) { .fCard { padding: 10px; gap: 10px; } .fCardIcon { width: 26px; height: 26px; font-size: 0.78rem; } .fCard h3 { font-size: 0.82rem; } .fCard p { font-size: 0.76rem; } .featureHero { padding: 84px 0 20px; } .featureHeroIcon { width: 36px; height: 36px; font-size: 0.95rem; margin-bottom: 12px; } .featureHeroTitle { font-size: clamp(1.05rem, 6.5vw, 1.3rem); } .featureHeroDesc { font-size: 0.82rem; margin-bottom: 0; } .featuresGrid { max-width: 100%; padding: 0 8px; gap: 10px; } .withCta { font-size: 0.84rem; } .withList { gap: 8px; max-width: 100%; } .withItem { gap: 8px; font-size: 0.8rem; } .otherGrid { gap: 6px; } .otherCard { padding: 8px 10px; font-size: 0.78rem; gap: 6px; } .otherFeatures { padding: 40px 0 48px; } }
 @media (min-width: 1440px) { .featuresGrid { grid-template-columns: repeat(4, 1fr); gap: 30px; } .otherGrid { grid-template-columns: repeat(4, 1fr); gap: 20px; } }
 @media (hover: none) and (pointer: coarse) { .fCard:hover { transform: none; border-color: var(--border-color); box-shadow: var(--shadow-xs); } .otherCard:hover { transform: none; border-color: var(--border-color); color: var(--text-secondary); box-shadow: var(--shadow-xs); } }
+@media (max-width: 359px) { .introOnly .whyContent p { font-size: 0.9rem; } .stepChip { font-size: 0.82rem; } .flowBox { font-size: 0.86rem; padding: 10px 12px; } }

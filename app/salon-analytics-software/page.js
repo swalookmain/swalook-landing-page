@@ -1,31 +1,42 @@
-'use client';
 import { FiBarChart2 } from 'react-icons/fi';
 import FeaturePage from '@/components/FeaturePage';
+
+const path = '/salon-analytics-software';
+const title = 'Salon Analytics Software | Salon Business Analytics | Swalook';
+const description = 'Salon analytics software to see your customers, revenue, services, staff and marketing performance in one place, for one salon or every branch you run.';
+
+export const metadata = {
+  title,
+  description,
+  alternates: { canonical: path },
+  openGraph: { title, description, url: path, siteName: 'Swalook', type: 'website', locale: 'en_IN', images: ['/swalook-logo.webp'] },
+  twitter: { card: 'summary_large_image', title, description, images: ['/swalook-logo.webp'] },
+};
 
 export default function AnalyticsPage() {
   return (
     <FeaturePage
       currentSlug="salon-analytics-software"
       icon={<FiBarChart2 />}
-      title="Salon Analytics Software"
-      heroDesc="Track sales trends, client behavior, and staff performance with Swalook's powerful salon analytics tools."
-      whyTitle="Why Analytics Matter for Salon Growth"
-      whyDesc="Data-driven salons grow faster. Swalook gives you actionable insights into what's working, what's not, and where to focus for maximum impact."
+      title="Salon Analytics That Help You Understand Your Business"
+      heroDesc="See your salon's customers, revenue, services, staff and marketing performance in one place."
       keyFeatures={[
-        { title: 'Sales Analytics', desc: 'Monitor daily, weekly, and monthly revenue trends.' },
-        { title: 'Client Behavior Insights', desc: 'Understand client preferences, visit frequency, and spending.' },
-        { title: 'Staff Performance', desc: 'Track each stylist\'s revenue, bookings, and client ratings.' },
-        { title: 'Service Popularity', desc: 'See which services drive the most revenue and bookings.' },
-        { title: 'Revenue Forecasting', desc: 'Predict future revenue based on historical trends.' },
+        { title: 'Sales Analytics', desc: 'See your daily, weekly and monthly sales.' },
+        { title: 'Customer Analytics', desc: 'See how many new and returning customers you are getting.' },
+        { title: 'Revenue', desc: 'Track how much your salon is earning over time.' },
+        { title: 'Service Performance', desc: 'See which services bring in the most revenue and bookings.' },
+        { title: 'Staff Performance', desc: 'Track each stylist\'s revenue and bookings.' },
+        { title: 'Customer Spending', desc: 'See how much each customer spends and how often they visit.' },
+        { title: 'Marketing Performance', desc: 'See where new customers are coming from and which campaigns bring them.' },
+        { title: 'Branch Performance', desc: 'Compare how your salon locations are performing.' },
       ]}
-      compareTitle="Why Choose Swalook Over Spreadsheets?"
-      compareDesc="Spreadsheets can't give you real-time insights connected to your bookings, inventory, and client data. Swalook pulls it all together automatically."
-      withPoints={[
-        'Make data-driven business decisions.',
-        'Identify top-performing services and staff.',
-        'Predict and plan for future growth.',
+      related={[
+        { href: '/salon-crm-features', label: 'Salon CRM' },
+        { href: '/customer-retention', label: 'Customer Retention' },
+        { href: '/customer-acquisition', label: 'Customer Acquisition' },
+        { href: '/multi-branch-salon-software', label: 'Multi-Branch' },
+        { href: '/salon-dashboard-software', label: 'Dashboard' },
       ]}
-      withCta="Ready to leverage powerful analytics for your salon? Start your journey with Swalook."
     />
   );
 }

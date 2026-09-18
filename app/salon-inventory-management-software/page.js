@@ -1,32 +1,39 @@
-'use client';
 import { FiPackage } from 'react-icons/fi';
 import FeaturePage from '@/components/FeaturePage';
+
+const path = '/salon-inventory-management-software';
+const title = 'Salon Inventory Management Software | Swalook';
+const description = 'Salon inventory management software to track products, stock, purchases and usage, spot low stock early and stop relying on spreadsheets to run your salon.';
+
+export const metadata = {
+  title,
+  description,
+  alternates: { canonical: path },
+  openGraph: { title, description, url: path, siteName: 'Swalook', type: 'website', locale: 'en_IN', images: ['/swalook-logo.webp'] },
+  twitter: { card: 'summary_large_image', title, description, images: ['/swalook-logo.webp'] },
+};
 
 export default function InventoryPage() {
   return (
     <FeaturePage
       currentSlug="salon-inventory-management-software"
       icon={<FiPackage />}
-      title="Smart Salon Inventory Management Software"
-      heroDesc="Reduce wastage, prevent stockouts, and manage expenses with Swalook's smart salon inventory management software. Multi-location, global-ready."
-      whyTitle="Why Inventory Management Matters"
-      whyDesc="Running out of products mid-service or over-ordering are common salon headaches. Swalook's inventory system gives you real-time visibility and control over every product in your salon."
+      title="Salon Inventory Management Without the Headache"
+      heroDesc="Keep track of products, stock, purchases and usage without relying on spreadsheets."
       keyFeatures={[
-        { title: 'Real-Time Stock Tracking', desc: 'Monitor product levels across all locations in real-time.' },
-        { title: 'Low-Stock Alerts', desc: 'Get notified automatically when products run low.' },
-        { title: 'Purchase Orders', desc: 'Create and manage purchase orders directly from the platform.' },
-        { title: 'Product Usage Reports', desc: 'Track how much product is used per service for accurate costing.' },
-        { title: 'Supplier Management', desc: 'Manage vendor details, pricing, and order history.' },
-        { title: 'Multi-Location Sync', desc: 'Sync inventory across multiple salon branches.' },
+        { title: 'Product Management', desc: 'Keep all your salon and retail products in one list.' },
+        { title: 'Stock Tracking', desc: 'See how much of each product you have in stock.' },
+        { title: 'Purchases', desc: 'Create and track purchase orders from your suppliers.' },
+        { title: 'Usage', desc: 'Track how much product is used in your services.' },
+        { title: 'Low Stock', desc: 'Know when a product is running low.' },
+        { title: 'Inventory Reports', desc: 'See stock, purchases and usage in simple reports.' },
       ]}
-      compareTitle="Why Choose Swalook Over Manual Tracking?"
-      compareDesc="Manual inventory tracking is error-prone and time-consuming. Swalook automates the entire process, connecting inventory directly to services and billing."
-      withPoints={[
-        'Prevent stockouts with automated alerts.',
-        'Reduce product wastage significantly.',
-        'Track inventory across multiple locations.',
+      related={[
+        { href: '/salon-management-software', label: 'Salon Management Software' },
+        { href: '/salon-invoice-software', label: 'Billing & POS' },
+        { href: '/salon-expense-management-software', label: 'Expenses' },
+        { href: '/multi-branch-salon-software', label: 'Multi-Branch' },
       ]}
-      withCta="Ready to take control of your salon inventory? Start your journey with Swalook."
     />
   );
 }

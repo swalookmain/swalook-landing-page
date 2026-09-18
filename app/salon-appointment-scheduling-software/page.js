@@ -1,32 +1,42 @@
-'use client';
 import { FiCalendar } from 'react-icons/fi';
 import FeaturePage from '@/components/FeaturePage';
+
+const path = '/salon-appointment-scheduling-software';
+const title = 'Salon Appointment Software | Booking & Scheduling | Swalook';
+const description = 'Salon appointment software to manage bookings, schedules, staff availability and rescheduling, with every visit added to your customer history in the CRM.';
+
+export const metadata = {
+  title,
+  description,
+  alternates: { canonical: path },
+  openGraph: { title, description, url: path, siteName: 'Swalook', type: 'website', locale: 'en_IN', images: ['/swalook-logo.webp'] },
+  twitter: { card: 'summary_large_image', title, description, images: ['/swalook-logo.webp'] },
+};
 
 export default function AppointmentsPage() {
   return (
     <FeaturePage
       currentSlug="salon-appointment-scheduling-software"
       icon={<FiCalendar />}
-      title="Smart Salon Appointment Scheduling Software"
-      heroDesc="Streamline your salon's appointment bookings with Swalook's advanced scheduling software. Enhance client satisfaction with easy-to-use tools."
-      whyTitle="Why Appointment Scheduling Matters"
-      whyDesc="Missed appointments cost salons thousands annually. Swalook's scheduling system reduces no-shows with automated reminders, enables online booking, and keeps your calendar organized 24/7."
+      title="Salon Appointment Software That Keeps Your Bookings Organized"
+      heroDesc="Manage appointments, bookings, schedules and customer visits from one place."
+      intro={['Every appointment also adds useful information to your customer history.']}
       keyFeatures={[
-        { title: 'Online Booking', desc: 'Let clients book appointments anytime from your website or app.' },
-        { title: 'Automated Reminders', desc: 'Send SMS and email reminders to reduce no-shows.' },
-        { title: 'Staff Calendar View', desc: 'See each stylist\'s availability at a glance.' },
-        { title: 'Service Selection', desc: 'Clients choose services, stylists, date and time easily.' },
-        { title: 'Walk-in Management', desc: 'Handle walk-ins alongside scheduled appointments seamlessly.' },
-        { title: 'Recurring Appointments', desc: 'Set up repeated bookings for regular clients.' },
+        { title: 'Appointment Calendar', desc: 'See all your salon bookings in one calendar.' },
+        { title: 'Customer Booking', desc: 'Book customers in with the service, stylist, date and time they want.' },
+        { title: 'Staff Availability', desc: 'See each stylist\'s availability at a glance.' },
+        { title: 'Appointment History', desc: 'See past and upcoming appointments for every customer.' },
+        { title: 'Rescheduling', desc: 'Move an appointment to a new time when plans change.' },
+        { title: 'Customer Details', desc: 'See the customer\'s details while you book.' },
+        { title: 'Visit History', desc: 'Know how often each customer visits and which services they take.' },
+        { title: 'Reminders & Confirmations', desc: 'Use automated reminders and confirmations to reduce avoidable no-shows.' },
       ]}
-      compareTitle="Why Choose Swalook Over Other Schedulers?"
-      compareDesc="Unlike standalone schedulers, Swalook connects appointments directly to invoicing, client profiles, and analytics — giving you a seamless workflow from booking to billing."
-      withPoints={[
-        'Reduce no-shows with automated reminders.',
-        'Let clients self-book online 24/7.',
-        'Manage staff schedules effortlessly.',
+      related={[
+        { href: '/salon-crm-features', label: 'Salon CRM' },
+        { href: '/salon-invoice-software', label: 'Billing & POS' },
+        { href: '/salon-staff-attendance-software', label: 'Staff Management' },
+        { href: '/customer-retention', label: 'Customer Retention' },
       ]}
-      withCta="Ready to simplify your salon's appointment scheduling? Start your journey with Swalook."
     />
   );
 }

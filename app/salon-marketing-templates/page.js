@@ -1,31 +1,40 @@
-'use client';
-import { FiMail } from 'react-icons/fi';
+import { FiTarget } from 'react-icons/fi';
 import FeaturePage from '@/components/FeaturePage';
 
-export default function TemplatesPage() {
+const path = '/salon-marketing-templates';
+const title = 'Salon Marketing Software | Marketing Automation for Salons | Swalook';
+const description = 'Salon marketing software that uses your customer information to run WhatsApp, Google and Meta campaigns for the right customers, not one offer for everyone.';
+
+export const metadata = {
+  title,
+  description,
+  alternates: { canonical: path },
+  openGraph: { title, description, url: path, siteName: 'Swalook', type: 'website', locale: 'en_IN', images: ['/swalook-logo.webp'] },
+  twitter: { card: 'summary_large_image', title, description, images: ['/swalook-logo.webp'] },
+};
+
+export default function SalonMarketingPage() {
   return (
     <FeaturePage
       currentSlug="salon-marketing-templates"
-      icon={<FiMail />}
-      title="Ready-to-Use Salon Marketing Templates"
-      heroDesc="Save time with Swalook's salon marketing templates. Send emails, SMS, and promotions that drive repeat bookings."
-      whyTitle="Why Marketing Templates Matter"
-      whyDesc="Consistent, professional communication builds trust. Swalook provides pre-designed templates so you can run marketing campaigns in minutes, not hours."
+      icon={<FiTarget />}
+      title="Salon Marketing Built Around Your Customers"
+      heroDesc="Your salon already has useful customer information. Use it to create more relevant marketing campaigns instead of sending the same offer to everyone."
       keyFeatures={[
-        { title: 'Email Templates', desc: 'Professional email templates for promotions, reminders, and newsletters.' },
-        { title: 'SMS Templates', desc: 'Ready-to-send SMS templates for quick client communication.' },
-        { title: 'Promotional Campaigns', desc: 'Launch seasonal promotions with pre-built campaign templates.' },
-        { title: 'Custom Branding', desc: 'Customize templates with your salon\'s logo, colors, and messaging.' },
-        { title: 'Automated Sending', desc: 'Schedule campaigns to send automatically at optimal times.' },
+        { title: 'Customer Segmentation', desc: 'Group customers by their visits, services and spending.' },
+        { title: 'WhatsApp Marketing', desc: 'Send follow-ups and campaigns to customers on WhatsApp.' },
+        { title: 'Customer Reactivation', desc: 'Bring back customers who haven\'t visited in a while.' },
+        { title: 'Google', desc: 'Use your customer information to guide your Google campaigns.' },
+        { title: 'Meta', desc: 'Use your customer information to guide your Facebook and Instagram campaigns.' },
+        { title: 'Campaigns', desc: 'Run birthday, festive and promotional campaigns from ready templates.' },
+        { title: 'Customer Acquisition', desc: 'See which campaigns bring new customers to your salon.' },
       ]}
-      compareTitle="Why Choose Swalook Over Generic Marketing Tools?"
-      compareDesc="Swalook's templates are designed specifically for salons and connected to your client data — enabling personalized, relevant communication that drives results."
-      withPoints={[
-        'Launch marketing campaigns in minutes.',
-        'Personalize communication for better engagement.',
-        'Drive repeat bookings with automated promotions.',
+      related={[
+        { href: '/customer-acquisition', label: 'Customer Acquisition' },
+        { href: '/salon-crm-features', label: 'Salon CRM' },
+        { href: '/whatsapp-marketing', label: 'WhatsApp Marketing' },
+        { href: '/salon-analytics-software', label: 'Analytics' },
       ]}
-      withCta="Ready to automate your salon marketing? Start your journey with Swalook."
     />
   );
 }
