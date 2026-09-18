@@ -13,7 +13,9 @@ describe("Link Integrity", () => {
             if (entry.isDirectory()) {
                 collectPages(fullPath);
             } else if (entry.name === "page.js" || entry.name === "page.tsx") {
-                pageFiles.push(fullPath.replace(pagesDir, "").replace("/page.js", "").replace("/page.tsx", "") || "/");
+                // Route path with forward slashes on every OS (path.join uses "\" on Windows)
+                const route = path.relative(pagesDir, dir).split(path.sep).join("/");
+                pageFiles.push(route ? `/${route}` : "/");
             }
         }
     }
