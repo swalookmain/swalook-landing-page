@@ -18,9 +18,6 @@ function MockMapPinIcon() {
 function MockFacebookIcon() {
   return <span data-testid="facebook-icon" />;
 }
-function MockTwitterIcon() {
-  return <span data-testid="twitter-icon" />;
-}
 function MockYoutubeIcon() {
   return <span data-testid="youtube-icon" />;
 }
@@ -44,7 +41,6 @@ vi.mock("react-icons/fi", () => ({
 
 vi.mock("react-icons/fa6", () => ({
   FaFacebookF: MockFacebookIcon,
-  FaXTwitter: MockTwitterIcon,
   FaYoutube: MockYoutubeIcon,
   FaLinkedinIn: MockLinkedinIcon,
   FaInstagram: MockInstagramIcon,
@@ -61,17 +57,20 @@ describe("Footer", () => {
   it("renders social media links", () => {
     render(<Footer />);
     expect(screen.getByLabelText("Facebook")).toBeTruthy();
-    expect(screen.getByLabelText("Twitter")).toBeTruthy();
     expect(screen.getByLabelText("YouTube")).toBeTruthy();
     expect(screen.getByLabelText("LinkedIn")).toBeTruthy();
     expect(screen.getByLabelText("Instagram")).toBeTruthy();
   });
 
-  it("renders CRM features links", () => {
+  it("renders the tagline and link columns", () => {
     render(<Footer />);
-    expect(screen.getByText("CRM Features")).toBeTruthy();
-    expect(screen.getByText("CRM Features")).toBeTruthy();
-    expect(screen.getByText("Appointment Scheduling")).toBeTruthy();
+    expect(screen.getByText("The CRM Built to Grow Your Salon")).toBeTruthy();
+    for (const heading of ["Product", "Growth", "Company", "Resources", "Legal"]) {
+      expect(screen.getByText(heading)).toBeTruthy();
+    }
+    expect(screen.getByText("Swalook CRM")).toBeTruthy();
+    expect(screen.getByText("Mobile App")).toBeTruthy();
+    expect(screen.getByText("Customer Acquisition")).toBeTruthy();
   });
 
   it("renders copyright text", () => {

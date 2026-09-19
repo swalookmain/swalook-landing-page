@@ -132,13 +132,13 @@ export default function BlogPostLayout({
           <section className={styles.sidebarCard}>
             <span className={styles.sidebarEyebrow}>Next step</span>
             <h3>See the product in action</h3>
-            <p>Book a demo or start a trial to explore the workflows behind these insights.</p>
+            <p>Book a demo to see how Swalook helps you understand your customers and grow your salon.</p>
             <div className={styles.actionStack}>
-              <Link href="/book-demo" className="btn btn-primary btn-sm">
-                Book Free Demo <FiArrowRight />
+              <Link href="/contact" className="btn btn-primary btn-sm">
+                Book a Demo <FiArrowRight />
               </Link>
-              <Link href="/free-trial" className="btn btn-outline btn-sm">
-                Start Free Trial
+              <Link href="/salon-crm-features" className="btn btn-outline btn-sm">
+                Explore Salon CRM
               </Link>
             </div>
           </section>

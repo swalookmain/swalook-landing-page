@@ -6,38 +6,19 @@ const SITE_URL = 'https://swalook.in';
 
 export const metadata = {
   metadataBase: new URL('https://swalook.in'),
-  title: 'Swalook: All-in-One Salon Management Software and Marketing Platform',
-  description: 'Swalook is an all-in-one salon management software and marketing platform for bookings, billing, retention, marketing automation, and staff management. Trusted by salons, spas, and multi-branch beauty brands across India.',
-  icons: {
-    icon: '/swalook-logo.webp',
-    apple: '/swalook-logo.webp',
-  },
+  title: 'Salon Management Software with Salon CRM | Swalook',
+  description: 'Salon management software with CRM, appointments, billing, WhatsApp automation and marketing tools to help salons get and retain more customers.',
   keywords: [
     'salon management software',
-    'salon CRM',
-    'salon marketing platform',
-    'beauty industry software',
-    'salon booking software',
-    'salon billing software',
-    'salon retention software',
-    'salon marketing automation',
-    'salon no show reduction',
-    'salon appointment management',
-    'salon inventory management',
-    'beauty salon CRM',
-    'spa management software',
     'salon software India',
-    'salon CRM India',
-    'beauty business software India',
-    'salon management India',
-    'salon CRM Maharashtra',
-    'salon CRM Mumbai',
-    'salon CRM Delhi',
-    'salon CRM Bangalore',
-    'salon CRM Chennai',
-    'salon CRM Hyderabad',
-    'salon CRM Pune',
-    'salon CRM Kolkata'
+    'salon CRM software',
+    'salon CRM',
+    'salon customer management software',
+    'salon appointment software',
+    'salon billing software',
+    'WhatsApp marketing for salons',
+    'salon customer retention',
+    'salon customer acquisition',
   ].join(', '),
   robots: {
     index: true,
@@ -54,8 +35,8 @@ export const metadata = {
     { rel: 'alternate', type: 'application/rss+xml', title: 'Swalook Blog', url: '/feed.xml' },
   ],
   openGraph: {
-    title: 'Swalook: All-in-One Salon Management Software and Marketing Platform',
-    description: 'Swalook is an all-in-one salon management software and marketing platform for bookings, billing, retention, marketing automation, and staff management. Trusted by salons, spas, and multi-branch beauty brands across India.',
+    title: 'Salon Management Software with Salon CRM | Swalook',
+    description: 'Salon management software with CRM, appointments, billing, WhatsApp automation and marketing tools to help salons get and retain more customers.',
     url: SITE_URL,
     siteName: 'Swalook',
     type: 'website',
@@ -66,22 +47,56 @@ export const metadata = {
         url: `${SITE_URL}/swalook-logo.webp`,
         width: 360,
         height: 56,
-        alt: 'Swalook - All-in-One Salon Management Software & Marketing Platform',
+        alt: 'Swalook - The CRM Built to Grow Your Salon',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Swalook: All-in-One Salon Management Software and Marketing Platform',
-    description: 'Swalook is an all-in-one salon management software and marketing platform for bookings, billing, retention, marketing automation, and staff management. Trusted by salons, spas, and multi-branch beauty brands across India.',
+    title: 'Salon Management Software with Salon CRM | Swalook',
+    description: 'Salon management software with CRM, appointments, billing, WhatsApp automation and marketing tools to help salons get and retain more customers.',
     images: [`${SITE_URL}/swalook-logo.webp`],
   },
+};
+
+// Tells Google the site's name and logo (the square mark), which it uses in search results.
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${SITE_URL}/#organization`,
+      name: 'Swalook',
+      legalName: 'Swalook Global Pvt. Ltd.',
+      url: SITE_URL,
+      logo: `${SITE_URL}/swalook-icon-512.png`,
+      email: 'info@swalook.in',
+      telephone: '+91-98701-03761',
+      sameAs: [
+        'https://www.facebook.com/people/SwaLook/100082780576167/',
+        'https://www.youtube.com/channel/UCQj9_wk87-iDb9h9TdxjHYg',
+        'https://www.linkedin.com/company/swalook/',
+        'https://www.instagram.com/swalook_official/',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+      name: 'Swalook',
+      url: SITE_URL,
+      publisher: { '@id': `${SITE_URL}/#organization` },
+    },
+  ],
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en-IN">
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <Navbar />
         <main>{children}</main>
         <Footer />

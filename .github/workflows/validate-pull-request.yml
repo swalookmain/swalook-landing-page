@@ -77,9 +77,19 @@ jobs:
         shell: bash
 
       - name: Osv-scanner vulnerability scan
+        # osv-scanner isn't published on npm; use Google's release binary, checksum-verified.
+        # Downloaded to RUNNER_TEMP so the Trivy step below doesn't scan the binary itself.
+        env:
+          OSV_SCANNER_VERSION: v2.6.0
         run: |
-          npm install -g @google/osv-scanner
-          osv-scanner --recursive .
+          cd "$RUNNER_TEMP"
+          BASE="https://github.com/google/osv-scanner/releases/download/${OSV_SCANNER_VERSION}"
+          curl -sSfLO "$BASE/osv-scanner_linux_amd64"
+          curl -sSfLO "$BASE/osv-scanner_SHA256SUMS"
+          grep " osv-scanner_linux_amd64$" osv-scanner_SHA256SUMS | sha256sum -c -
+          chmod +x osv-scanner_linux_amd64
+          cd "$GITHUB_WORKSPACE"
+          "$RUNNER_TEMP/osv-scanner_linux_amd64" scan source --recursive .
         shell: bash
 
       - name: Trivy vulnerability & secret scan

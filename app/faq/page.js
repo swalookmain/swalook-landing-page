@@ -7,68 +7,92 @@ import PageHero from '@/components/PageHero';
 import AnimatedSection, { StaggerContainer, StaggerItem } from '@/components/AnimatedSection';
 import styles from './FAQ.module.css';
 
-const salonInfo = [
+const crmFaqs = [
+  {
+    q: 'What is Swalook?',
+    a: 'Swalook is salon management software with a built-in CRM that helps you manage your salon, understand your customers and take action. It is built to help you get more customers, understand their value and bring them back.',
+  },
   {
     q: 'What can Swalook help my salon manage?',
-    a: 'Swalook is built around appointment scheduling, billing and invoices, dashboards and analytics, inventory, staff and attendance visibility, loyalty, inquiry management, and branch control.',
+    a: 'Appointments, billing, customers, staff, inventory, enquiries, loyalty, WhatsApp follow-ups, marketing and analytics. And because everything is connected to your CRM, the information you collect while running your salon can also help you improve customer retention and acquisition.',
+  },
+  {
+    q: 'What does the salon CRM show about each customer?',
+    a: 'Each customer profile shows the last visit, total visits, services, total spend, average spend, appointment history and customer status. Know your customers before deciding what to do next.',
+  },
+  {
+    q: 'Does Swalook help with appointments and no-shows?',
+    a: 'Yes. Manage appointments, bookings, schedules and customer visits from one place. Use automated reminders and confirmations to reduce avoidable no-shows and keep customers informed about their appointments.',
   },
   {
     q: 'Can I manage multiple salon branches?',
-    a: 'Yes. The public product story and backend route surface both support branch visibility and multi-location operational control.',
-  },
-  {
-    q: 'Does Swalook support appointments and follow-ups?',
-    a: 'Yes. Swalook supports appointment scheduling workflows and helps salons keep their calendars organized with reminders, confirmations, and follow-up-oriented messaging.',
-  },
-  {
-    q: 'Can I review performance from one place?',
-    a: 'Yes. Swalook includes dashboard and analytics surfaces so teams can review operational visibility, branch performance, and business reporting in one system.',
+    a: 'Yes. Keep your customers, staff, appointments, billing and business reports connected across your salon locations, and compare how each branch is performing.',
   },
 ];
 
-const clientInfo = [
+const growthFaqs = [
   {
-    q: 'How do I explore Swalook before deciding?',
-    a: 'Start with the product pages, then use the Book Demo or Free Trial routes to see how Swalook fits your salon workflow.',
+    q: 'How does Swalook help me bring customers back?',
+    a: 'Swalook helps you identify customers who are due, at risk or inactive so you can take action at the right time. You can then follow up with them on WhatsApp.',
   },
   {
-    q: 'Where can I learn more about specific features?',
-    a: 'The feature hub links into appointment scheduling, billing, inventory, analytics, marketing templates, staff attendance, loyalty, and other product pages.',
+    q: 'How do WhatsApp follow-ups work?',
+    a: 'Swalook uses your CRM to find customers who need a follow-up and prepares the message. You review it and confirm before it is sent. Use it for visit reminders, rebooking reminders, at-risk and dormant customers, birthday campaigns and promotions.',
   },
   {
-    q: 'Can I contact the team with questions?',
-    a: 'Yes. You can use the contact page to reach the team directly, or use the demo and trial flows if you want a guided product discussion.',
+    q: 'Can Swalook help me get new customers?',
+    a: 'Yes. Swalook connects your CRM with Google and Meta so your customer information can help guide your acquisition efforts. You can see where customers are coming from, which campaigns bring customers and whether new customers come back.',
   },
   {
-    q: 'Where can I read supporting material?',
-    a: 'The blog and FAQ sections are designed to support product education, evaluation, and internal linking across the site.',
+    q: 'Can I see which customers are most valuable?',
+    a: 'Yes. Swalook connects your customer, appointment and billing data so you can get a clearer picture of customer value. See who spends more, who visits more often and who has stopped coming.',
+  },
+  {
+    q: 'Can I see how my salon is performing?',
+    a: "Yes. See your salon's customers, revenue, services, staff and marketing performance in one place.",
   },
 ];
 
 const generalFaqs = [
   {
-    q: 'What makes Swalook more than a basic booking page?',
-    a: 'Swalook is positioned as a broader beauty-business operations platform, covering retention, marketing, appointments, billing, analytics, and branch visibility rather than a single booking feature.',
+    q: 'Is Swalook only billing or booking software?',
+    a: 'No. Appointments, billing and staff management are important, but they are only one part of the business. Swalook is built around your CRM, so every bill and visit also helps you understand customers, bring them back and find new ones.',
   },
   {
-    q: 'Which parts of the site should I visit first?',
-    a: 'Start with the homepage for the overview, the feature hub for product depth, and the demo or trial routes if you want to continue toward evaluation.',
+    q: 'Do I need to be good with technology?',
+    a: 'No. Swalook is made for salon owners and salon teams. Swalook finds customers and opportunities that need attention. You review what is happening, then click and confirm.',
   },
   {
-    q: 'Does Swalook support loyalty and repeat-customer workflows?',
-    a: 'Yes. Loyalty and repeat-customer workflows are part of the market-now claim set and are reflected in the product and landing-page structure.',
+    q: 'Who is Swalook for?',
+    a: 'Salons that want to grow: independent salons, growing salons and multi-branch salons.',
   },
   {
-    q: 'How should I contact Swalook for product questions?',
-    a: 'Use the contact page for general questions, or the demo and trial pages if your next step is product evaluation.',
+    q: 'How can I see Swalook before deciding?',
+    a: (
+      <>
+        Book a demo on our <Link href="/contact" className={styles.faqLink}>contact page</Link>. Tell us about
+        your salon and we&rsquo;ll show you how Swalook can help.
+      </>
+    ),
   },
   {
-    q: 'Where can I see related product content?',
-    a: 'The blog, feature pages, and FAQ are connected to help visitors move from education to product exploration without getting stuck in a dead end.',
+    q: 'How do I contact Swalook?',
+    a: (
+      <>
+        Email <a href="mailto:info@swalook.in" className={styles.faqLink}>info@swalook.in</a>, email{' '}
+        <a href="mailto:sales@swalook.in" className={styles.faqLink}>sales@swalook.in</a> for sales, or call{' '}
+        <a href="tel:+919870103761" className={styles.faqLink}>+91 98701 03761</a>.
+      </>
+    ),
   },
   {
-    q: 'What if I want a more detailed product walkthrough?',
-    a: 'The current public routes are built around the homepage, feature hub, blog, FAQ, demo, trial, and contact pages, so those are the best places to start.',
+    q: 'Where can I read more about running a salon?',
+    a: (
+      <>
+        The <Link href="/blogs" className={styles.faqLink}>Swalook blog</Link> has articles on salon CRM,
+        marketing, no-shows and billing.
+      </>
+    ),
   },
 ];
 
@@ -119,22 +143,22 @@ export default function FAQPage() {
     <>
       <PageHero
         label="FAQ"
-        title="Frequently Asked Questions"
-        highlight="Find the right page, feature, or next step."
-        description="Browse common questions about Swalook, the product surface, and the best route for evaluation."
+        title="Frequently Asked"
+        highlight="Questions"
+        description="Common questions about Swalook, the salon CRM and management software built to help salons grow."
       />
 
-      {/* Salon Info */}
+      {/* Salon CRM and daily work */}
       <section className={styles.faqSection}>
         <div className={styles.faqContainer}>
-          <FAQAccordion items={salonInfo} category="For Salon Owners" />
+          <FAQAccordion items={crmFaqs} category="Salon CRM and Daily Work" />
         </div>
       </section>
 
-      {/* Client Info */}
+      {/* Getting and keeping customers */}
       <section className={`${styles.faqSection} ${styles.faqSectionAlt}`}>
         <div className={styles.faqContainer}>
-          <FAQAccordion items={clientInfo} category="For Visitors" />
+          <FAQAccordion items={growthFaqs} category="Getting and Keeping Customers" />
           <div className={styles.askBtn}>
             <Link href="/contact" className="btn btn-outline btn-sm">
               Have More Questions? <FiArrowRight />
@@ -148,12 +172,12 @@ export default function FAQPage() {
         <div className="section-header">
           <AnimatedSection>
             <span className="section-label">General</span>
-            <h2 className="section-title">Product, Route, and Evaluation Help</h2>
+            <h2 className="section-title">Getting Started with Swalook</h2>
           </AnimatedSection>
         </div>
         <StaggerContainer className={styles.generalFaqGrid}>
-          {generalFaqs.map((faq, i) => (
-            <StaggerItem key={i}>
+          {generalFaqs.map((faq) => (
+            <StaggerItem key={faq.q}>
               <div className={styles.generalFaqCard}>
                 <h3>{faq.q}</h3>
                 <p>{faq.a}</p>
@@ -161,6 +185,11 @@ export default function FAQPage() {
             </StaggerItem>
           ))}
         </StaggerContainer>
+        <div className={styles.askBtn}>
+          <Link href="/contact" className="btn btn-primary">
+            Book a Demo <FiArrowRight />
+          </Link>
+        </div>
       </section>
     </>
   );

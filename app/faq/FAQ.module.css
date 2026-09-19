@@ -12,6 +12,7 @@
 .faqAnswerOpen { max-height: 9999px; }
 .faqAnswerInner { padding: 0 22px 18px; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; }
 .askBtn { text-align: center; margin-top: 28px; }
+.faqLink { color: var(--primary); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
 
 .generalFaq { padding: var(--section-padding); background: var(--bg-section-alt); }
 .generalFaqGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }

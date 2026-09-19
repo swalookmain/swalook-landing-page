@@ -1,39 +1,41 @@
-import { fetchPublishedPosts } from '@/lib/blog-public';
+import { getPublicPosts } from '@/lib/site-posts';
 
 const SITE_URL = 'https://swalook.in';
 
+function escapeXml(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
 export async function GET() {
-  let posts = [];
-  try {
-    const result = await fetchPublishedPosts({ limit: 50 });
-    posts = result.posts || [];
-  } catch {}
-  
-  const items = posts.map(post => `
+  const posts = (await getPublicPosts())
+    .map((post) => ({ ...post, date: new Date(post.publishedAt || post.published_at || post.createdAt || Date.now()) }))
+    .sort((a, b) => b.date - a.date);
+
+  const items = posts.map((post) => `
   <item>
-    <title><![CDATA[${post.title}]]></title>
+    <title>${escapeXml(post.title)}</title>
     <link>${SITE_URL}/blog/${post.slug}</link>
-    <description><![CDATA[${post.excerpt || ''}]]></description>
-    <pubDate>${new Date(post.publishedAt || post.createdAt).toUTCString()}</pubDate>
+    <description>${escapeXml(post.excerpt)}</description>
+    <pubDate>${post.date.toUTCString()}</pubDate>
     <guid isPermaLink="true">${SITE_URL}/blog/${post.slug}</guid>
-  </item>`).join('\n');
-  
+  </item>`).join('');
+
   return new Response(
     `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
 <channel>
   <title>Swalook Blog</title>
   <link>${SITE_URL}/blogs</link>
-  <description>Salon CRM, marketing, and growth insights from Swalook</description>
-  <language>en</language>
-  <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-${items}
+  <description>Salon CRM, marketing and growth guides for salon owners, from Swalook</description>
+  <language>en-IN</language>
+  <lastBuildDate>${(posts[0]?.date || new Date()).toUTCString()}</lastBuildDate>${items}
 </channel>
 </rss>`,
-    {
-      headers: {
-        'Content-Type': 'application/rss+xml',
-      },
-    }
+    { headers: { 'Content-Type': 'application/rss+xml; charset=utf-8' } }
   );
 }

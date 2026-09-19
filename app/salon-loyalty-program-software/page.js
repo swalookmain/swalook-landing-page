@@ -1,6 +1,17 @@
-'use client';
 import { FiHeart } from 'react-icons/fi';
 import FeaturePage from '@/components/FeaturePage';
+
+const path = '/salon-loyalty-program-software';
+const title = 'Salon Loyalty Program Software | Customer Loyalty | Swalook';
+const description = 'Salon loyalty program software to reward repeat visits, track customer spending and send offers that keep your regular customers coming back to your salon.';
+
+export const metadata = {
+  title,
+  description,
+  alternates: { canonical: path },
+  openGraph: { title, description, url: path, siteName: 'Swalook', type: 'website', locale: 'en_IN', images: ['/swalook-logo.webp'] },
+  twitter: { card: 'summary_large_image', title, description, images: ['/swalook-logo.webp'] },
+};
 
 export default function LoyaltyPage() {
   return (
@@ -8,24 +19,27 @@ export default function LoyaltyPage() {
       currentSlug="salon-loyalty-program-software"
       icon={<FiHeart />}
       title="Salon Loyalty Program Software"
-      heroDesc="Increase retention with Swalook's salon loyalty software. Reward clients, track visits, and personalize engagement with ease."
+      heroDesc="Reward your regular customers, track their visits and give them more reasons to come back with Swalook's salon loyalty software."
       whyTitle="Why Loyalty Programs Matter"
-      whyDesc="Acquiring a new client costs 5x more than retaining an existing one. Swalook's loyalty features help you reward your best customers, increase visit frequency, and build lasting relationships."
+      whyDesc="Your regular customers keep your salon going. Swalook's loyalty features use the visit and spending history in your CRM to reward your best customers and encourage repeat visits."
       keyFeatures={[
-        { title: 'Points-Based Rewards', desc: 'Set up point systems where clients earn rewards for every visit or purchase.' },
-        { title: 'Visit Tracking', desc: 'Track client visit frequency and spending patterns automatically.' },
-        { title: 'Personalized Offers', desc: 'Send targeted promotions based on client preferences and history.' },
-        { title: 'Referral Programs', desc: 'Encourage clients to refer friends with automated referral rewards.' },
-        { title: 'Birthday & Anniversary Specials', desc: 'Delight clients with automatic special-day offers.' },
+        { title: 'Points-Based Rewards', desc: 'Set up point systems where customers earn rewards for every visit or purchase.' },
+        { title: 'Visit Tracking', desc: 'Track customer visit frequency and spending patterns automatically.' },
+        { title: 'Personalized Offers', desc: 'Send offers based on customer preferences and history.' },
+        { title: 'Referral Programs', desc: 'Encourage customers to refer friends with referral rewards.' },
+        { title: 'Birthday & Anniversary Specials', desc: 'Send birthday and anniversary offers automatically.' },
       ]}
-      compareTitle="Why Choose Swalook for Loyalty?"
-      compareDesc="Generic loyalty apps don't know your clients. Swalook connects loyalty directly to client profiles, visit history, and preferences for truly personalized engagement."
       withPoints={[
-        'Boost client retention with smart rewards.',
-        'Personalize engagement for every client.',
-        'Turn clients into brand advocates.',
+        'Reward customers for coming back.',
+        'Send offers that fit each customer.',
+        'Get regular customers to refer their friends.',
       ]}
-      withCta="Ready to build lasting client relationships? Start your journey with Swalook."
+      related={[
+        { href: '/customer-retention', label: 'Customer Retention' },
+        { href: '/salon-crm-features', label: 'Salon CRM' },
+        { href: '/whatsapp-marketing', label: 'WhatsApp Marketing' },
+        { href: '/salon-marketing-templates', label: 'Salon Marketing' },
+      ]}
     />
   );
 }

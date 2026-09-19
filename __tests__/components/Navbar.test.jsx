@@ -35,18 +35,18 @@ describe("Navbar", () => {
 
   it("renders navigation links", () => {
     render(<Navbar />);
-    expect(screen.getByText("Home")).toBeTruthy();
-    expect(screen.getByText("About Us")).toBeTruthy();
-    expect(screen.getByText("Products")).toBeTruthy();
-    expect(screen.getByText("Resources")).toBeTruthy();
-    expect(screen.getByText("Contact Us")).toBeTruthy();
-    expect(screen.getByText("FAQ")).toBeTruthy();
-    expect(screen.getByText("Careers")).toBeTruthy();
+    for (const label of ["Product", "Solutions", "Resources"]) {
+      expect(screen.getAllByText(label).length).toBeGreaterThan(0);
+    }
+    expect(screen.getAllByText("Salon CRM").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Customer Retention").length).toBeGreaterThan(0);
   });
 
-  it("renders CTA button", () => {
+  it("renders Login and Book a Demo on desktop and mobile", () => {
     render(<Navbar />);
-    expect(screen.getByText("Request a Demo")).toBeTruthy();
+    expect(screen.getAllByText("Login").length).toBeGreaterThan(0);
+    // desktop CTA, always-visible mobile bar CTA, and mobile menu CTA
+    expect(screen.getAllByText("Book a Demo").length).toBe(3);
   });
 
   it("renders mobile menu toggle button", () => {

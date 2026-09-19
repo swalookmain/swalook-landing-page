@@ -6,6 +6,9 @@ import { usePathname } from 'next/navigation';
 import { FiChevronDown } from 'react-icons/fi';
 import styles from './Navbar.module.css';
 
+// Swalook CRM web app (swalook-frontend-new) — its root redirects to /auth/login.
+const LOGIN_URL = 'https://v2.swalookcrm.in/';
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -27,26 +30,37 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   const navItems = [
-    { label: 'Home', href: '/' },
-    { label: 'About Us', href: '/about' },
     {
-      label: 'Products',
+      label: 'Product',
       href: '/salon-crm-features',
       dropdown: [
-        { label: 'CRM', href: '/salon-crm-features' },
+        { label: 'Salon CRM', href: '/salon-crm-features' },
         { label: 'Mobile App', href: '/mobile-app' },
+      ],
+    },
+    {
+      label: 'Solutions',
+      href: '/customer-retention',
+      dropdown: [
+        { label: 'Customer Acquisition', href: '/customer-acquisition' },
+        { label: 'Customer Retention', href: '/customer-retention' },
+        { label: 'WhatsApp Marketing', href: '/whatsapp-marketing' },
+        { label: 'Salon Marketing', href: '/salon-marketing-templates' },
+        { label: 'Inquiry Management', href: '/salon-inquiry-management' },
+        { label: 'Multi-Branch', href: '/multi-branch-salon-software' },
       ],
     },
     {
       label: 'Resources',
       href: '/blogs',
       dropdown: [
-        { label: 'Blogs', href: '/blogs' },
+        { label: 'Blog', href: '/blogs' },
+        { label: 'FAQs', href: '/faq' },
+        { label: 'About Us', href: '/about' },
+        { label: 'Careers', href: '/careers' },
+        { label: 'Contact Us', href: '/contact' },
       ],
     },
-    { label: 'Contact Us', href: '/contact' },
-    { label: 'FAQ', href: '/faq' },
-    { label: 'Careers', href: '/careers' },
   ];
 
   const isActive = (href) => pathname === href;
@@ -57,7 +71,7 @@ export default function Navbar() {
         <div className={styles.navContainer}>
           <Link href="/" className={styles.logo}>
             Swalook
-            <span className={styles.logoSub}>Salon CRM Software</span>
+            <span className={styles.logoSub}>Revenue Generation Engine for Salons</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -82,24 +96,32 @@ export default function Navbar() {
                 )}
               </div>
             ))}
+            <a href={LOGIN_URL} className={styles.loginLink}>
+              Login
+            </a>
             <Link href="/contact" className={styles.ctaButton}>
-              Request a Demo
+              Book a Demo
             </Link>
           </div>
 
-          {/* Mobile Toggle */}
-          <button
-            type="button"
-            className={`${styles.menuToggle} ${mobileOpen ? styles.menuOpen : ''}`}
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-navigation-menu"
-          >
-            <span className={styles.menuBar} />
-            <span className={styles.menuBar} />
-            <span className={styles.menuBar} />
-          </button>
+          {/* Mobile: Book a Demo stays visible next to the menu toggle */}
+          <div className={styles.mobileBar}>
+            <Link href="/contact" className={styles.mobileBarCta}>
+              Book a Demo
+            </Link>
+            <button
+              type="button"
+              className={`${styles.menuToggle} ${mobileOpen ? styles.menuOpen : ''}`}
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-navigation-menu"
+            >
+              <span className={styles.menuBar} />
+              <span className={styles.menuBar} />
+              <span className={styles.menuBar} />
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -132,8 +154,11 @@ export default function Navbar() {
             )}
           </div>
         ))}
+        <a href={LOGIN_URL} className={styles.mobileNavLink}>
+          Login
+        </a>
         <Link href="/contact" className={styles.mobileCta}>
-          Request a Demo
+          Book a Demo
         </Link>
       </div>
     </>
