@@ -1,0 +1,83 @@
+/* Floating chat button, bottom right on every page.
+   z-index sits under the navbar (1000) and the mobile menu overlay (998) so it never covers them. */
+.whatsappButton {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 900;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 20px;
+  border-radius: var(--radius-full);
+  background: #25d366;
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), background var(--transition-base);
+}
+
+.whatsappButton:hover,
+.whatsappButton:focus-visible {
+  background: #1eb959;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45);
+}
+
+.whatsappButton:focus-visible {
+  outline: 2px solid #128c4a;
+  outline-offset: 3px;
+}
+
+.icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .whatsappButton {
+    right: 16px;
+    bottom: 16px;
+    padding: 12px 18px;
+    font-size: 0.88rem;
+  }
+}
+
+/* Very narrow phones: icon only, so the button never crowds the screen */
+@media (max-width: 359px) {
+  .whatsappButton {
+    padding: 14px;
+    gap: 0;
+  }
+
+  .label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .whatsappButton:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsappButton {
+    transition: none;
+  }
+
+  .whatsappButton:hover,
+  .whatsappButton:focus-visible {
+    transform: none;
+  }
+}
