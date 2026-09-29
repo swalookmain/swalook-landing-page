@@ -1,14 +1,14 @@
 .introSection { padding: var(--section-padding); background: var(--bg-section-alt); }
-.introContent { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.introContent { max-width: var(--container-width); margin: 0 auto; padding: var(--container-padding); display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
 .introText h2 { font-size: 2rem; margin-bottom: 16px; color: var(--text-heading); font-family: var(--font-display); font-weight: 700; }
 .introText p { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; }
 .introImage { border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-md); display: flex; }
 
 .servicesSection { padding: var(--section-padding); background: var(--bg-white); }
-.servicesContent { max-width: 900px; margin: 0 auto; padding: 0 24px; text-align: center; margin-bottom: 44px; }
+.servicesContent { max-width: 900px; margin: 0 auto; padding: var(--container-padding); text-align: center; margin-bottom: 44px; }
 .servicesContent p { color: var(--text-secondary); line-height: 1.8; }
 
-.featureGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 22px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.featureGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 22px; max-width: var(--container-width); margin: 0 auto; padding: var(--container-padding); }
 .featureCard { background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 30px; transition: all 0.4s ease; position: relative; overflow: hidden; box-shadow: var(--shadow-xs); }
 .featureCard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient-primary); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
 .featureCard:hover::before { transform: scaleX(1); }
@@ -20,7 +20,7 @@
 
 .ctaSection { padding: 90px 0; text-align: center; background: linear-gradient(135deg, #00BCD4 0%, #0097A7 40%, #00838F 100%); position: relative; overflow: hidden; }
 .ctaSection::before { content: ''; position: absolute; top: -80px; right: -80px; width: 300px; height: 300px; border-radius: 50%; background: rgba(255,255,255,0.06); pointer-events: none; }
-.ctaContent { max-width: 600px; margin: 0 auto; padding: 0 24px; }
+.ctaContent { max-width: 600px; margin: 0 auto; padding: var(--container-padding); }
 .ctaContent h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 22px; color: #fff; -webkit-text-fill-color: #fff; background: none; }
 
 @media (max-width: 900px) { .introContent { grid-template-columns: 1fr; } }

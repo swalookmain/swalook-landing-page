@@ -36,7 +36,7 @@
   <circle cx="495" cy="190" r="6" fill="#00BCD4"/>
   <text x="515" y="195" fill="#546E7A" font-size="11">Auto reminders</text>
   <circle cx="495" cy="215" r="6" fill="#00BCD4"/>
-  <text x="515" y="220" fill="#546E7A" font-size="11">< 5% no-show rate</text>
+  <text x="515" y="220" fill="#546E7A" font-size="11">&lt; 5% no-show rate</text>
   <circle cx="495" cy="240" r="6" fill="#00BCD4"/>
   <text x="515" y="245" fill="#546E7A" font-size="11">Client profiles</text>
   <circle cx="495" cy="265" r="6" fill="#00BCD4"/>

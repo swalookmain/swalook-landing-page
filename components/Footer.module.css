@@ -33,11 +33,11 @@
 
 .footerGrid {
   display: grid;
-  grid-template-columns: 1.7fr repeat(5, minmax(0, 1fr));
+  grid-template-columns: 1.7fr repeat(6, minmax(0, 1fr));
   gap: 32px;
-  max-width: 1200px;
+  max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: var(--container-padding);
 }
 
 .footerBrand {
@@ -157,9 +157,9 @@
 }
 
 .footerBottomInner {
-  max-width: 1200px;
+  max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: var(--container-padding);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -384,11 +384,11 @@
 
 @media (min-width: 1440px) {
   .footerGrid {
-    max-width: 1400px;
+    max-width: var(--container-width);
   }
 
   .footerBottomInner {
-    max-width: 1400px;
+    max-width: var(--container-width);
   }
 
   .footerGrid {

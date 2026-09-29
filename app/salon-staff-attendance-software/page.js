@@ -28,8 +28,24 @@ export default function StaffPage() {
         { title: 'Commissions', desc: 'Work out staff commissions from the services they do.' },
         { title: 'Staff Reports', desc: 'See attendance and performance for your whole team.' },
       ]}
+      flow={[
+        "Staff check in for their shift",
+        "Perform scheduled services throughout the day",
+        "Commissions and revenue are tracked automatically",
+        "Staff check out",
+        "Review daily attendance and performance reports"
+      ]}
+      flowTitle="Attendance to Performance Workflow"
+      screenshot={{ src: "/images/attendance.png", alt: "Staff attendance screenshot", caption: "Manage team attendance and performance metrics" }}
+      useCases={[
+        { title: "Shift Management", desc: "Plan shifts efficiently to ensure you have the right number of stylists available during peak hours." },
+        { title: "Commissions", desc: "Automatically calculate staff commissions based on the services they complete, saving time on payroll." }
+      ]}
+      faqs={[
+        { q: "Can staff check in and out easily?", a: "Yes, staff can easily log their daily attendance which is recorded directly into the system." },
+        { q: "Are commissions calculated automatically?", a: "Yes, the system tracks services provided by each staff member and computes commissions based on your set rules." }
+      ]}
       related={[
-        { href: '/salon-management-software', label: 'Salon Management Software' },
         { href: '/salon-appointment-scheduling-software', label: 'Appointments' },
         { href: '/salon-analytics-software', label: 'Analytics' },
         { href: '/multi-branch-salon-software', label: 'Multi-Branch' },

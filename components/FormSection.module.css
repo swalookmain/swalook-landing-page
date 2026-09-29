@@ -10,9 +10,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 56px;
-  max-width: 1200px;
+  max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: var(--container-padding);
   align-items: start;
 }
 
@@ -203,7 +203,7 @@
 .newsletterContent {
   max-width: 600px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: var(--container-padding);
   text-align: center;
 }
 

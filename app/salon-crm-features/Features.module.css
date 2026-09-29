@@ -1,9 +1,9 @@
 .introSection { padding: 60px 0; background: var(--bg-section-alt); }
-.introContent { max-width: 900px; margin: 0 auto; padding: 0 24px; text-align: center; }
+.introContent { max-width: 900px; margin: 0 auto; padding: var(--container-padding); text-align: center; }
 .introContent p { color: var(--text-secondary); font-size: 1.02rem; line-height: 1.8; }
 
 .featuresSection { padding: var(--section-padding); background: var(--bg-section-alt); }
-.featuresGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.featuresGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: var(--container-width); margin: 0 auto; padding: var(--container-padding); }
 .featureCard { background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 30px; transition: all 0.4s ease; position: relative; overflow: hidden; text-align: center; box-shadow: var(--shadow-xs); }
 .featureCard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient-primary); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
 .featureCard:hover::before { transform: scaleX(1); }
@@ -16,7 +16,7 @@
 .learnBtn:hover { background: var(--primary); border-color: var(--primary); color: #fff; }
 
 .crmSection { padding: var(--section-padding); background: var(--bg-white); }
-.crmGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.crmGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: var(--container-width); margin: 0 auto; padding: var(--container-padding); }
 .crmCard { background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 24px; display: flex; gap: 14px; align-items: flex-start; height: 100%; transition: all 0.3s ease; box-shadow: var(--shadow-xs); }
 .crmCard:hover { border-color: var(--border-hover); transform: translateY(-3px); box-shadow: var(--shadow-card-hover); }
 .crmCardIcon { width: 40px; height: 40px; border-radius: var(--radius-md); background: rgba(0,188,212,0.08); display: flex; align-items: center; justify-content: center; color: var(--primary); flex-shrink: 0; font-size: 1rem; }
@@ -24,14 +24,14 @@
 .crmCard p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
 
 .withSection { padding: var(--section-padding); background: var(--bg-white); }
-.withContent { max-width: 900px; margin: 0 auto; padding: 0 24px; text-align: center; }
+.withContent { max-width: 900px; margin: 0 auto; padding: var(--container-padding); text-align: center; }
 .withList { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; text-align: left; max-width: 600px; margin-left: auto; margin-right: auto; }
 .withItem { display: flex; align-items: center; gap: 12px; font-size: 0.93rem; color: var(--text-secondary); padding: 10px 14px; background: rgba(0,188,212,0.03); border-radius: var(--radius-md); border: 1px solid rgba(0,188,212,0.06); }
 .withItemIcon { color: var(--primary); flex-shrink: 0; }
 .withCta { margin-top: 14px; color: var(--text-secondary); font-size: 0.98rem; margin-bottom: 24px; }
 
 .relatedSection { padding: 60px 0 80px; background: var(--bg-section-alt); }
-.relatedGrid { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+.relatedGrid { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 1000px; margin: 0 auto; padding: var(--container-padding); }
 .relatedGrid > * { flex: 0 1 220px; }
 .relatedCard { display: flex; align-items: center; gap: 10px; padding: 14px 16px; background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-md); font-size: 0.85rem; font-weight: 500; color: var(--text-secondary); transition: all 0.3s ease; box-shadow: var(--shadow-xs); }
 .relatedCard:hover { border-color: var(--border-hover); color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
