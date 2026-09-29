@@ -72,6 +72,9 @@ export default function FeaturePage({
   related,
   currentSlug,
   accentColor,
+  screenshot,
+  useCases = [],
+  faqs = [],
 }) {
   const color = accentColor || defaultAccents[currentSlug] || '#00BCD4';
   const hasWhy = Boolean(whyTitle || whyDesc || intro.length > 0);
@@ -217,6 +220,93 @@ export default function FeaturePage({
               ))}
             </ol>
           </AnimatedSection>
+        </section>
+      )}
+
+      {/* Screenshot Section */}
+      {screenshot && (
+        <section className={styles.screenshotSection} style={{ padding: '60px 0' }}>
+          <div className="section-header">
+            <AnimatedSection>
+              <span className="section-label">Interface</span>
+              <h2 className="section-title">See It in Action</h2>
+            </AnimatedSection>
+          </div>
+          <AnimatedSection>
+            <div style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: 'var(--container-padding)' }}>
+              <div style={{ background: '#f8f9fa', padding: 'var(--container-padding)', borderRadius: '12px', border: '1px solid #eaeaea', textAlign: 'center' }}>
+                {screenshot.src ? (
+                  <img src={screenshot.src} alt={screenshot.alt || 'Screenshot'} style={{ maxWidth: '100%', borderRadius: '8px' }} />
+                ) : (
+                  <div style={{ background: '#e0e0e0', padding: '120px 20px', borderRadius: '8px', color: '#666', fontSize: '18px' }}>
+                    Screenshot Placeholder
+                  </div>
+                )}
+                {screenshot.caption && <p style={{ marginTop: '15px', fontSize: '15px', color: '#555' }}>{screenshot.caption}</p>}
+              </div>
+            </div>
+          </AnimatedSection>
+        </section>
+      )}
+
+      {/* Use Cases Section */}
+      {useCases.length > 0 && (
+        <section className={styles.useCasesSection} style={{ padding: '60px 0', background: '#fdfdfd' }}>
+          <div className="section-header">
+            <AnimatedSection>
+              <span className="section-label">Use Cases</span>
+              <h2 className="section-title">How Salons Use This</h2>
+            </AnimatedSection>
+          </div>
+          <StaggerContainer style={{ display: 'grid', gap: '24px', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', maxWidth: 'var(--container-width)', margin: '0 auto', padding: 'var(--container-padding)' }}>
+            {useCases.map((uc, i) => (
+              <StaggerItem key={i}>
+                <div style={{ background: '#fff', padding: '30px', borderRadius: '12px', border: '1px solid #eaeaea', height: '100%' }}>
+                  <h3 style={{ margin: '0 0 10px 0', fontSize: '1.25rem', color: color }}>{uc.title}</h3>
+                  <p style={{ margin: 0, color: '#555', lineHeight: 1.6 }}>{uc.desc}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </section>
+      )}
+
+      {/* FAQs Section */}
+      {faqs.length > 0 && (
+        <section className={styles.faqSection} style={{ padding: '60px 0' }}>
+          <div className="section-header">
+            <AnimatedSection>
+              <span className="section-label">FAQ</span>
+              <h2 className="section-title">Frequently Asked Questions</h2>
+            </AnimatedSection>
+          </div>
+          <AnimatedSection>
+            <div style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: 'var(--container-padding)' }}>
+              {faqs.map((faq, i) => (
+                <details key={i} style={{ marginBottom: '15px', background: '#fff', padding: 'var(--container-padding)', borderRadius: '8px', border: '1px solid #eaeaea' }}>
+                  <summary style={{ fontWeight: '600', cursor: 'pointer', fontSize: '1.1rem', color: '#333' }}>{faq.q}</summary>
+                  <p style={{ margin: '15px 0 0 0', color: '#555', lineHeight: 1.6 }}>{faq.a}</p>
+                </details>
+              ))}
+            </div>
+          </AnimatedSection>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": faqs.map(faq => ({
+                  "@type": "Question",
+                  "name": faq.q,
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.a
+                  }
+                }))
+              })
+            }}
+          />
         </section>
       )}
 

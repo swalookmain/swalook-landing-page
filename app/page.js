@@ -79,6 +79,7 @@ const featureGroups = [
   { icon: <FiUserCheck />, title: 'Staff & Attendance', desc: 'Track attendance, shifts, and staff performance in one place.', link: '/salon-staff-attendance-software' },
   { icon: <FiDollarSign />, title: 'Expenses & Purchasing', desc: 'Track expenses, purchases, and costs to protect margins.', link: '/salon-expense-management-software' },
   { icon: <FiHeart />, title: 'Customer Loyalty', desc: 'Build repeat visits with rewards, combos, and special offers.', link: '/salon-loyalty-program-software' },
+  { icon: <FiCheckCircle />, title: 'Membership', desc: 'Create flexible membership plans, give customers clear benefits and manage every membership from the same system you use for customer profiles, visits and billing.', link: '/salon-membership-software' },
   { icon: <FiMessageCircle />, title: 'WhatsApp Automation', desc: 'Send follow-ups and campaigns to the right customers on WhatsApp.', link: '/whatsapp-marketing' },
   { icon: <FiMail />, title: 'Marketing', desc: 'Run campaigns based on your customers instead of one offer for everyone.', link: '/salon-marketing-templates' },
   { icon: <FiGlobe />, title: 'Google & Meta', desc: 'Use your customer data to help bring in new customers.', link: '/customer-acquisition' },
@@ -204,9 +205,6 @@ export default function HomePage() {
                 <p className={styles.heroDesc}>
                   Swalook helps you get new customers, bring old customers back, understand your customers, and manage your salon automatically - All in one place.                
                 </p>
-                <p className={styles.heroDesc}>
-                  Running a salon is more than appointments and billing.
-                </p>
               </div>
 
               <div className={styles.heroActions}>
@@ -218,13 +216,6 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              <div className={styles.heroTrustStrip}>
-                {heroHighlights.map((item) => (
-                  <div key={item} className={styles.heroTrustItem}>
-                    {item}
-                  </div>
-                ))}
-              </div>
             </AnimatedSection>
 
             <AnimatedSection className={styles.heroVisualWrap} direction="right">
@@ -284,6 +275,16 @@ export default function HomePage() {
 
               </div>
             </AnimatedSection>
+          </div>
+        </div>
+
+        <div className={styles.heroMarqueeContainer}>
+          <div className={styles.heroMarqueeTrack}>
+            {[...heroHighlights, ...heroHighlights].map((item, idx) => (
+              <div key={`${item}-${idx}`} className={styles.heroTrustItem}>
+                {item}
+              </div>
+            ))}
           </div>
         </div>
       </section>

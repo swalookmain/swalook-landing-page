@@ -1,7 +1,7 @@
 import { FiTarget } from 'react-icons/fi';
 import FeaturePage from '@/components/FeaturePage';
 
-const path = '/salon-marketing-templates';
+const path = '/salon-marketing';
 const title = 'Salon Marketing Software | Marketing Automation for Salons | Swalook';
 const description = 'Salon marketing software that uses your customer information to run WhatsApp, Google and Meta campaigns for the right customers, not one offer for everyone.';
 
@@ -16,7 +16,7 @@ export const metadata = {
 export default function SalonMarketingPage() {
   return (
     <FeaturePage
-      currentSlug="salon-marketing-templates"
+      currentSlug="salon-marketing"
       icon={<FiTarget />}
       title="Salon Marketing Built Around Your Customers"
       heroDesc="Your salon already has useful customer information. Use it to create more relevant marketing campaigns instead of sending the same offer to everyone."

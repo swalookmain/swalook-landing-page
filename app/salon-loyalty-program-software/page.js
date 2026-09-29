@@ -39,6 +39,7 @@ export default function LoyaltyPage() {
         { href: '/salon-crm-features', label: 'Salon CRM' },
         { href: '/whatsapp-marketing', label: 'WhatsApp Marketing' },
         { href: '/salon-marketing-templates', label: 'Salon Marketing' },
+        { href: '/salon-membership-software', label: 'Salon Memberships' },
       ]}
     />
   );

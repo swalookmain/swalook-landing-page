@@ -39,6 +39,7 @@ export default function CustomerRetentionPage() {
         { href: '/whatsapp-marketing', label: 'WhatsApp Marketing' },
         { href: '/salon-analytics-software', label: 'Customer Analytics' },
         { href: '/salon-loyalty-program-software', label: 'Customer Loyalty' },
+        { href: '/salon-membership-software', label: 'Salon Memberships' },
       ]}
     />
   );

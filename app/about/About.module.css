@@ -1,5 +1,5 @@
 .companyInfo { padding: var(--section-padding); background: var(--bg-white); }
-.companyGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.companyGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; max-width: var(--container-width); margin: 0 auto; padding: var(--container-padding); }
 .companyText h3 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--primary); margin-bottom: 10px; font-weight: 600; }
 .companyText h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; margin-bottom: 18px; color: var(--text-heading); }
 .companyText p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; }
@@ -14,7 +14,7 @@
 .companyImage { border-radius: var(--radius-xl); aspect-ratio: 4/3; background: var(--gradient-soft); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-md); overflow: hidden; }
 
 .missionSection { padding: var(--section-padding); background: var(--bg-section-alt); }
-.missionGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.missionGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: var(--container-width); margin: 0 auto; padding: var(--container-padding); }
 .missionCard { background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 36px; transition: all 0.3s ease; position: relative; overflow: hidden; box-shadow: var(--shadow-xs); }
 .missionCard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient-primary); }
 .missionCard:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
@@ -24,23 +24,23 @@
 .missionCard strong { color: var(--text-heading); }
 
 .valuesSection { padding: var(--section-padding); background: var(--bg-white); }
-.valuesGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.valuesGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: var(--container-width); margin: 0 auto; padding: var(--container-padding); }
 .valueCard { text-align: center; padding: 28px 20px; background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-lg); transition: all 0.3s ease; box-shadow: var(--shadow-xs); }
 .valueCard:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
 .valueIcon { width: 56px; height: 56px; border-radius: 50%; background: rgba(0,188,212,0.08); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-size: 1.4rem; color: var(--primary); }
 .valueCard p { font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; }
 
 .journeySection { padding: var(--section-padding); background: var(--bg-section-alt); }
-.journeyContent { max-width: 800px; margin: 0 auto; padding: 0 24px; text-align: center; }
+.journeyContent { max-width: 800px; margin: 0 auto; padding: var(--container-padding); text-align: center; }
 .journeyContent p { color: var(--text-secondary); font-size: 1.02rem; line-height: 1.8; }
 
 .highlightsSection { padding: var(--section-padding); background: var(--bg-white); }
-.highlightsGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 24px; margin-bottom: 56px; }
+.highlightsGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: var(--container-width); margin: 0 auto; padding: var(--container-padding); margin-bottom: 56px; }
 .highlightCard { background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 22px; text-align: center; transition: all 0.3s ease; box-shadow: var(--shadow-xs); }
 .highlightCard:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: var(--shadow-card-hover); }
 .highlightCard p { font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; }
 
-.detailSection { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.detailSection { max-width: var(--container-width); margin: 0 auto; padding: var(--container-padding); }
 .detailRow { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; margin-bottom: 56px; }
 .detailRowReverse { grid-template-columns: 1fr 1fr; }
 .detailRowReverse > :first-child { order: 2; }
@@ -50,7 +50,7 @@
 .detailText p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
 
 .featuresSection { padding: var(--section-padding); background: var(--bg-white); }
-.featuresGrid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.featuresGrid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; max-width: var(--container-width); margin: 0 auto; padding: var(--container-padding); }
 .featureCard { background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 28px 20px; text-align: center; transition: all 0.3s ease; box-shadow: var(--shadow-xs); }
 .featureCard:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
 .featureCardIcon { width: 48px; height: 48px; border-radius: 50%; background: rgba(0,188,212,0.08); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-size: 1.2rem; color: var(--primary); }
@@ -58,7 +58,7 @@
 .featureCard p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.65; }
 
 .milestonesSection { padding: var(--section-padding); background: var(--bg-section-alt); }
-.milestonesGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.milestonesGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: var(--container-width); margin: 0 auto; padding: var(--container-padding); }
 .milestoneCard { background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 28px 20px; text-align: center; transition: all 0.3s ease; box-shadow: var(--shadow-xs); }
 .milestoneCard:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
 .milestoneIcon { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, rgba(0,188,212,0.12), rgba(0,150,136,0.12)); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-size: 1.3rem; color: var(--primary); }
@@ -122,7 +122,7 @@
 }
 
 .learnMore { padding: var(--section-padding); background: var(--bg-section-alt); }
-.learnContent { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+.learnContent { max-width: 900px; margin: 0 auto; padding: var(--container-padding); }
 .learnContent p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 18px; font-size: 0.93rem; }
 
 .aboutCta { padding: 60px 0 80px; text-align: center; background: var(--bg-white); }
