@@ -3,7 +3,7 @@ import FeaturePage from '@/components/FeaturePage';
 
 const path = '/salon-inventory-management-software';
 const title = 'Salon Inventory Management Software | Swalook';
-const description = 'Salon inventory management software to track products, stock, purchases and usage, spot low stock early and stop relying on spreadsheets to run your salon.';
+const description = 'Salon inventory management software to track products, stock, purchases and usage. Spot low stock early and stop relying on manual spreadsheets.';
 
 export const metadata = {
   title,

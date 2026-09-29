@@ -7,7 +7,7 @@ import styles from './MobileApp.module.css';
 
 const path = '/mobile-app';
 const title = 'Salon Management Mobile App | Swalook';
-const description = 'The Swalook salon mobile app lets you manage appointments, get booking reminders and keep an eye on your salon and customers from your phone, wherever you are.';
+const description = 'Manage appointments, get reminders, and monitor your salon and customers from anywhere with the Swalook mobile app.';
 
 export const metadata = {
   title,

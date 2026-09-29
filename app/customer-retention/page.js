@@ -3,7 +3,7 @@ import FeaturePage from '@/components/FeaturePage';
 
 const path = '/customer-retention';
 const title = 'Salon Customer Retention Software | Repeat Customers | Swalook';
-const description = 'Salon customer retention software that shows which customers are due for a visit, at risk or dormant, so you can follow up on WhatsApp and bring them back.';
+const description = 'Salon customer retention software that shows customers due for a visit, at risk or dormant, so you can follow up on WhatsApp and bring them back.';
 
 export const metadata = {
   title,

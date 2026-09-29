@@ -3,7 +3,7 @@ import FeaturePage from '@/components/FeaturePage';
 
 const path = '/salon-crm-features';
 const title = 'Salon CRM Software for Salons | Customer Management | Swalook';
-const description = 'Salon CRM software that keeps customer profiles, visits, services and spending in one place, so you can spot at-risk customers and follow up at the right time.';
+const description = 'Salon CRM software that keeps customer profiles, visits, and spending in one place. Spot at-risk customers and follow up at the right time.';
 
 export const metadata = {
   title,

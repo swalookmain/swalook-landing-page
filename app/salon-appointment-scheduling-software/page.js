@@ -3,7 +3,7 @@ import FeaturePage from '@/components/FeaturePage';
 
 const path = '/salon-appointment-scheduling-software';
 const title = 'Salon Appointment Software | Booking & Scheduling | Swalook';
-const description = 'Salon appointment software to manage bookings, schedules, staff availability and rescheduling, with every visit added to your customer history in the CRM.';
+const description = 'Salon appointment software to manage bookings, schedules, staff availability and rescheduling, with every visit added to customer history in the CRM.';
 
 export const metadata = {
   title,

@@ -3,7 +3,7 @@ import FeaturePage from '@/components/FeaturePage';
 
 const path = '/salon-marketing';
 const title = 'Salon Marketing Software | Marketing Automation for Salons | Swalook';
-const description = 'Salon marketing software that uses your customer information to run WhatsApp, Google and Meta campaigns for the right customers, not one offer for everyone.';
+const description = 'Salon marketing software that uses your customer information to run targeted WhatsApp, Google and Meta campaigns instead of one offer for everyone.';
 
 export const metadata = {
   title,

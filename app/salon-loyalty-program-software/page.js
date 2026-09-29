@@ -3,7 +3,7 @@ import FeaturePage from '@/components/FeaturePage';
 
 const path = '/salon-loyalty-program-software';
 const title = 'Salon Loyalty Program Software | Customer Loyalty | Swalook';
-const description = 'Salon loyalty program software to reward repeat visits, track customer spending and send offers that keep your regular customers coming back to your salon.';
+const description = 'Salon loyalty program software to reward repeat visits, track spending and send personalized offers that keep your regular customers coming back.';
 
 export const metadata = {
   title,

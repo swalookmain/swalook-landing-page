@@ -3,7 +3,7 @@ import FeaturePage from '@/components/FeaturePage';
 
 const path = '/salon-management-software';
 const title = 'Salon Management Software in India | Swalook';
-const description = 'Salon management software for appointments, billing, staff, inventory and customers, all connected to a built-in CRM that helps your salon keep and win customers.';
+const description = 'Salon management software for appointments, billing, staff and inventory. Built-in CRM tools help your salon automatically keep and win customers.';
 
 export const metadata = {
   title,

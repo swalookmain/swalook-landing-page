@@ -3,7 +3,7 @@ import FeaturePage from '@/components/FeaturePage';
 
 const path = '/whatsapp-marketing';
 const title = 'WhatsApp Marketing for Salons | WhatsApp Automation | Swalook';
-const description = 'WhatsApp marketing for salons that uses your CRM to find customers who are due, at risk or dormant, then helps you review, confirm and send each follow-up.';
+const description = 'WhatsApp marketing for salons that uses CRM data to find customers who are due, at risk or dormant. Easily review, confirm and send each follow-up.';
 
 export const metadata = {
   title,

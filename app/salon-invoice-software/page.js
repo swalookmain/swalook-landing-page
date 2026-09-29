@@ -3,7 +3,7 @@ import FeaturePage from '@/components/FeaturePage';
 
 const path = '/salon-invoice-software';
 const title = 'Salon Billing Software & POS | Swalook';
-const description = 'Salon billing software and POS to create bills, take payments and track sales, connected to your CRM so you can see what each customer buys and spends.';
+const description = 'Salon billing software and POS to create bills, take payments and track sales. Connected to your CRM to see exactly what each customer buys.';
 
 export const metadata = {
   title,
