@@ -1,118 +1,50 @@
-'use client';
+import BlogIndex from './BlogIndex';
+import { blogCategories } from '@/components/blog/blogData';
+import { fetchCategories } from '@/lib/blog-public';
+import { getPublicPosts } from '@/lib/site-posts';
 
-import { useState, useMemo } from 'react';
-import { FiSearch } from 'react-icons/fi';
-import BlogHero from '@/components/blog/BlogHero';
-import BlogCategoryTabs from '@/components/blog/BlogCategoryTabs';
-import BlogPostGrid from '@/components/blog/BlogPostGrid';
-import {
-  blogPosts as staticPosts,
-  blogCategories as staticCategories,
-} from '@/components/blog/blogData';
-import styles from './Blogs.module.css';
+export const revalidate = 300;
 
-function normalizePost(post, index = 0) {
-  const category = post.category || post.categories?.[0]?.name || 'Salon Growth';
-  const readTime = post.readTime || (post.readingTimeMinutes ? `${post.readingTimeMinutes} min read` : '6 min read');
-  const image =
-    post.coverImage ||
-    post.ogImage ||
-    post.heroMedia?.publicUrl ||
-    post.image ||
-    null;
-
-  return {
-    ...post,
-    href: post.href || `/blog/${post.slug}`,
-    category,
-    readTime,
-    author: post.author?.name || post.author || 'Swalook Editorial',
-    publishedAt: post.publishedAt || post.published_at || post.createdAt,
-    eyebrow: post.eyebrow || (post.featured ? 'Featured guide' : 'Salon insight'),
-    coverImage: image,
-    imageAlt: post.coverImageAlt || post.heroMedia?.altText || `${post.title} article cover`,
-    featured: Boolean(post.featured) || index === 0,
-  };
+function cardPost(post) {
+  const { contentBlocks: _contentBlocks, ...card } = post;
+  return card;
 }
 
-export default function BlogsPage() {
-  const [activeCategory, setActiveCategory] = useState('All Posts');
-  const [searchQuery, setSearchQuery] = useState('');
+function publishedTime(post) {
+  const value = post.publishedAt || post.published_at || post.createdAt || '';
+  const time = new Date(value).getTime();
+  return Number.isNaN(time) ? 0 : time;
+}
 
-  const posts = useMemo(
-    () => staticPosts.map((post, index) => normalizePost(post, index)),
-    []
-  );
-
-  const categories = staticCategories;
-
-  const filteredPosts = useMemo(() => {
-    const byCategory = activeCategory === 'All Posts' ? posts : posts.filter((post) => {
-      const catNames = post.categories
-        ? post.categories.map((c) => c.name)
-        : [post.category];
-      return catNames.includes(activeCategory);
+function mergeCategories(staticCategories, apiCategories) {
+  const seen = new Set();
+  const merged = [];
+  for (const category of [...staticCategories, ...apiCategories]) {
+    const label = category?.name || category?.label;
+    if (!label || seen.has(label)) continue;
+    seen.add(label);
+    merged.push({
+      label,
+      slug: category.slug || label.toLowerCase().replace(/\s+/g, '-'),
     });
+  }
+  return merged;
+}
 
-    const query = searchQuery.trim().toLowerCase();
-    if (!query) return byCategory;
-    return byCategory.filter((post) =>
-      [post.title, post.excerpt, post.category, ...(post.tags || []).map((tag) => tag.name)]
-        .filter(Boolean)
-        .some((value) => String(value).toLowerCase().includes(query))
-    );
-  }, [posts, activeCategory, searchQuery]);
+export default async function BlogsPage() {
+  const [posts, apiCategories] = await Promise.all([
+    getPublicPosts(),
+    fetchCategories().catch(() => []),
+  ]);
 
-  const displayCategories = categories.map((c) => {
-    const name = c.name || c.label;
-    const slug = c.slug || name.toLowerCase().replace(/\s+/g, '-');
-    return { label: name, slug };
-  });
-
-  const tabs = [
-    { label: 'All Posts', slug: 'all-posts' },
-    ...displayCategories.filter((c) => c.label !== 'All Posts'),
-  ];
+  const cards = posts
+    .map(cardPost)
+    .sort((left, right) => publishedTime(right) - publishedTime(left));
 
   return (
-    <>
-      <BlogHero
-        label="Blog"
-        title={<>Insights and strategies for salon success</>}
-        description="Practical CRM, marketing, and growth guidance for salon owners who want more repeat clients, cleaner operations, and stronger revenue."
-      />
-
-      <section className={styles.blogsSection}>
-        <div className={styles.blogsInner}>
-          <div className={styles.toolbar}>
-            <label className={styles.searchBox}>
-              <FiSearch aria-hidden="true" />
-              <span className="sr-only">Search articles</span>
-              <input
-                type="search"
-                value={searchQuery}
-                onChange={(event) => setSearchQuery(event.target.value)}
-                placeholder="Search articles on salon CRM, marketing, billing..."
-              />
-            </label>
-            <BlogCategoryTabs
-              categories={tabs}
-              activeCategory={activeCategory}
-              onChange={setActiveCategory}
-            />
-          </div>
-
-          <BlogPostGrid
-            posts={filteredPosts}
-            emptyState={
-              <div className={styles.emptyState}>
-                <h2>No posts found</h2>
-                <p>Try another category or return to all posts.</p>
-              </div>
-            }
-          />
-        </div>
-      </section>
-    </>
+    <BlogIndex
+      posts={cards}
+      categories={mergeCategories(blogCategories, Array.isArray(apiCategories) ? apiCategories : [])}
+    />
   );
 }
