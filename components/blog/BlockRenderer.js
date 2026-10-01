@@ -3,7 +3,15 @@ import styles from "./BlockRenderer.module.css";
 
 function d(t) {
   if (!t) return "";
-  return t;
+  const escaped = String(t)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+  return escaped
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\+\+(.+?)\+\+/g, "<u>$1</u>")
+    .replace(/\*(.+?)\*/g, "<em>$1</em>")
+    .replace(/\n/g, "<br/>");
 }
 
 function extractVideoId(url, platform) {
@@ -50,14 +58,14 @@ export default function BlockRenderer({ blocks }) {
 
 function renderHeading(data, key) {
   const level = data.level || 2;
-  const text = d(data.text);
-  if (level === 2) return <h2 key={key} className={styles.h2}>{text}</h2>;
-  if (level === 3) return <h3 key={key} className={styles.h3}>{text}</h3>;
-  return <h4 key={key} className={styles.h4}>{text}</h4>;
+  const props = { key, className: level === 3 ? styles.h3 : level === 4 ? styles.h4 : styles.h2, dangerouslySetInnerHTML: { __html: d(data.text) } };
+  if (level === 3) return <h3 {...props} />;
+  if (level === 4) return <h4 {...props} />;
+  return <h2 {...props} />;
 }
 
 function renderParagraph(data, key) {
-  return <p key={key} className={styles.paragraph}>{d(data.text)}</p>;
+  return <p key={key} className={styles.paragraph} dangerouslySetInnerHTML={{ __html: d(data.text) }} />;
 }
 
 function renderList(data, key) {
@@ -65,7 +73,7 @@ function renderList(data, key) {
   const style = data.style || "unordered";
   if (items.length === 0) return null;
   const listItems = items.map((item, i) => (
-    <li key={i} className={styles.listItem}>{d(item)}</li>
+    <li key={i} className={styles.listItem} dangerouslySetInnerHTML={{ __html: d(item) }} />
   ));
   if (style === "ordered") return <ol key={key} className={styles.orderedList}>{listItems}</ol>;
   return <ul key={key} className={styles.unorderedList}>{listItems}</ul>;
@@ -74,8 +82,8 @@ function renderList(data, key) {
 function renderQuote(data, key) {
   return (
     <blockquote key={key} className={styles.quote}>
-      <p className={styles.quoteText}>{d(data.text)}</p>
-      {data.cite && <cite className={styles.quoteCite}>{d(data.cite)}</cite>}
+      <p className={styles.quoteText} dangerouslySetInnerHTML={{ __html: d(data.text) }} />
+      {data.cite && <cite className={styles.quoteCite} dangerouslySetInnerHTML={{ __html: `— ${d(data.cite)}` }} />}
     </blockquote>
   );
 }
@@ -84,8 +92,8 @@ function renderCallout(data, key) {
   const variant = data.variant || "info";
   return (
     <div key={key} className={`${styles.callout} ${styles[`callout--${variant}`] || ""}`}>
-      {data.title && <strong className={styles.calloutTitle}>{d(data.title)}</strong>}
-      {data.text && <p className={styles.calloutText}>{d(data.text)}</p>}
+      {data.title && <strong className={styles.calloutTitle} dangerouslySetInnerHTML={{ __html: d(data.title) }} />}
+      {data.text && <p className={styles.calloutText} dangerouslySetInnerHTML={{ __html: d(data.text) }} />}
     </div>
   );
 }
@@ -96,7 +104,7 @@ function renderImage(data, key) {
   return (
     <figure key={key} className={styles.imageFigure}>
       <Image src={src} alt={data.alt || ''} width={800} height={450} className={styles.image} loading="lazy" unoptimized={true} />
-      {data.caption && <figcaption className={styles.imageCaption}>{d(data.caption)}</figcaption>}
+      {data.caption && <figcaption className={styles.imageCaption} dangerouslySetInnerHTML={{ __html: d(data.caption) }} />}
     </figure>
   );
 }
@@ -113,11 +121,11 @@ function renderCode(data, key) {
 function renderHighlight(data, key) {
   const label = d(data.label || "");
   const text = d(data.text || "");
-  if (!label) return <p key={key} className={styles.paragraph}>{text}</p>;
+  if (!label) return <p key={key} className={styles.paragraph} dangerouslySetInnerHTML={{ __html: text }} />;
   return (
     <p key={key} className={styles.highlight}>
-      <strong className={styles.highlightLabel}>{label}</strong>
-      {text && ` ${text}`}
+      <strong className={styles.highlightLabel} dangerouslySetInnerHTML={{ __html: label }} />
+      {text ? <span dangerouslySetInnerHTML={{ __html: ` ${text}` }} /> : null}
     </p>
   );
 }
@@ -169,9 +177,9 @@ function renderFaq(data, key) {
     <div key={key} className={styles.faq}>
       {items.map((item, i) => (
         <details key={i} className={styles.faqItem}>
-          <summary className={styles.faqQuestion}>{d(item.question || "")}</summary>
+          <summary className={styles.faqQuestion} dangerouslySetInnerHTML={{ __html: d(item.question || "") }} />
           <div className={styles.faqAnswer}>
-            <p>{d(item.answer || "")}</p>
+            <p dangerouslySetInnerHTML={{ __html: d(item.answer || "") }} />
           </div>
         </details>
       ))}
@@ -271,7 +279,7 @@ function renderVideo(data, key) {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         />
       </div>
-      {caption && <figcaption className={styles.videoCaption}>{d(caption)}</figcaption>}
+      {caption && <figcaption className={styles.videoCaption} dangerouslySetInnerHTML={{ __html: d(caption) }} />}
     </figure>
   );
 }
