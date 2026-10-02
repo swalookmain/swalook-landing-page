@@ -3,7 +3,7 @@ import FeaturePage from '@/components/FeaturePage';
 
 const path = '/salon-appointment-scheduling-software';
 const title = 'Salon Appointment Software | Booking & Scheduling | Swalook';
-const description = 'Salon appointment software to manage bookings, schedules, staff availability and rescheduling, with every visit added to your customer history in the CRM.';
+const description = 'Salon appointment software to manage bookings, schedules, staff availability and rescheduling, with every visit added to customer history in the CRM.';
 
 export const metadata = {
   title,
@@ -31,11 +31,27 @@ export default function AppointmentsPage() {
         { title: 'Visit History', desc: 'Know how often each customer visits and which services they take.' },
         { title: 'Reminders & Confirmations', desc: 'Use automated reminders and confirmations to reduce avoidable no-shows.' },
       ]}
+      flow={[
+        "Create an appointment",
+        "Send confirmation to the customer",
+        "Reschedule easily if plans change",
+        "Complete the appointment and generate the bill"
+      ]}
+      flowTitle="Appointment Workflow"
+      screenshot={{ src: "/images/appointment.png", alt: "Appointment calendar screenshot", caption: "Clear view of daily bookings and staff availability" }}
+      useCases={[
+        { title: "Staff Availability", desc: "Check which stylists are free and book a walk-in customer instantly without double-booking." },
+        { title: "Reduce No-Shows", desc: "Automated reminders ensure customers don't forget their scheduled appointments, keeping your calendar full." }
+      ]}
+      faqs={[
+        { q: "Can I manage schedules for multiple stylists?", a: "Yes, you can view your entire team's calendar side by side to manage availability easily." },
+        { q: "Does it track appointment history?", a: "Absolutely. Every booking is logged in the customer's profile for future reference." }
+      ]}
       related={[
         { href: '/salon-crm-features', label: 'Salon CRM' },
-        { href: '/salon-invoice-software', label: 'Billing & POS' },
         { href: '/salon-staff-attendance-software', label: 'Staff Management' },
-        { href: '/customer-retention', label: 'Customer Retention' },
+        { href: '/salon-invoice-software', label: 'Billing & POS' },
+        { href: '/whatsapp-marketing', label: 'WhatsApp Marketing' },
       ]}
     />
   );

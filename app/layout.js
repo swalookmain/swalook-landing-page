@@ -7,6 +7,15 @@ const SITE_URL = 'https://swalook.in';
 
 export const metadata = {
   metadataBase: new URL('https://swalook.in'),
+  icons: {
+    icon: [
+      // { url: '/favicon.ico' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/icon.png' },
+    ],
+  },
   title: 'Salon Management Software with Salon CRM | Swalook',
   description: 'Salon management software with CRM, appointments, billing, WhatsApp automation and marketing tools to help salons get and retain more customers.',
   keywords: [
@@ -24,6 +33,15 @@ export const metadata = {
   robots: {
     index: true,
     follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   alternates: {
     canonical: SITE_URL,

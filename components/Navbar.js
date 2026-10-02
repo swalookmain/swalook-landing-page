@@ -12,6 +12,7 @@ const LOGIN_URL = 'https://v2.swalookcrm.in/';
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [forceCloseKey, setForceCloseKey] = useState(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -22,6 +23,11 @@ export default function Navbar() {
 
   useEffect(() => {
     setMobileOpen(false);
+    if (typeof document !== 'undefined') {
+      document.activeElement?.blur();
+      const details = document.querySelectorAll('details');
+      details.forEach(d => d.removeAttribute('open'));
+    }
   }, [pathname]);
 
   useEffect(() => {
@@ -31,34 +37,45 @@ export default function Navbar() {
 
   const navItems = [
     {
-      label: 'Product',
+      label: 'Customer Management',
       href: '/salon-crm-features',
       dropdown: [
         { label: 'Salon CRM', href: '/salon-crm-features' },
-        { label: 'Mobile App', href: '/mobile-app' },
+        { label: 'Customer Retention', href: '/customer-retention' },
+        { label: 'Membership', href: '/salon-membership-software' },
+        { label: 'Loyalty', href: '/salon-loyalty-program-software' },
+        { label: 'Inquiry Management', href: '/salon-inquiry-management' },
       ],
     },
     {
-      label: 'Solutions',
-      href: '/customer-retention',
+      label: 'Daily Operations',
+      href: '/salon-appointment-scheduling-software',
+      dropdown: [
+        { label: 'Appointments', href: '/salon-appointment-scheduling-software' },
+        { label: 'Billing and POS', href: '/salon-invoice-software' },
+        { label: 'Inventory', href: '/salon-inventory-management-software' },
+        { label: 'Staff and Attendance', href: '/salon-staff-attendance-software' },
+        { label: 'Expenses and Purchasing', href: '/salon-expense-management-software' },
+        { label: 'Analytics', href: '/salon-analytics-software' },
+        { label: 'Multi Branch', href: '/multi-branch-salon-software' },
+      ],
+    },
+    {
+      label: 'Growth and Engagement',
+      href: '/customer-acquisition',
       dropdown: [
         { label: 'Customer Acquisition', href: '/customer-acquisition' },
-        { label: 'Customer Retention', href: '/customer-retention' },
         { label: 'WhatsApp Marketing', href: '/whatsapp-marketing' },
-        { label: 'Salon Marketing', href: '/salon-marketing-templates' },
-        { label: 'Inquiry Management', href: '/salon-inquiry-management' },
-        { label: 'Multi-Branch', href: '/multi-branch-salon-software' },
+        { label: 'Salon Marketing', href: '/salon-marketing' },
       ],
     },
     {
-      label: 'Resources',
-      href: '/blogs',
+      label: 'Product Access',
+      href: '/mobile-app',
       dropdown: [
-        { label: 'Blog', href: '/blogs' },
-        { label: 'FAQs', href: '/faq' },
-        { label: 'About Us', href: '/about' },
-        { label: 'Careers', href: '/careers' },
-        { label: 'Contact Us', href: '/contact' },
+        { label: 'Mobile App', href: '/mobile-app' },
+        { label: 'Login', href: LOGIN_URL, isExternal: true },
+        { label: 'Book a Demo', href: '/contact' },
       ],
     },
   ];
@@ -77,7 +94,12 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <div className={styles.navLinks}>
             {navItems.map((item) => (
-              <div key={item.label} className={styles.navItem}>
+              <div 
+                key={item.label} 
+                className={`${styles.navItem} ${forceCloseKey === item.label ? styles.forceClose : ''}`}
+                onMouseLeave={() => setForceCloseKey(null)}
+                onMouseEnter={() => setForceCloseKey(null)}
+              >
                 <Link
                   href={item.href}
                   className={`${styles.navLink} ${isActive(item.href) ? styles.activeLink : ''}`}
@@ -88,9 +110,15 @@ export default function Navbar() {
                 {item.dropdown && (
                   <div className={styles.dropdown}>
                     {item.dropdown.map((sub) => (
-                      <Link key={sub.label} href={sub.href} className={styles.dropdownLink}>
-                        {sub.label}
-                      </Link>
+                      sub.isExternal ? (
+                        <a key={sub.label} href={sub.href} className={`${styles.dropdownLink} ${isActive(sub.href) ? styles.activeDropdownLink : ""}`} onClick={() => { document.activeElement?.blur(); setForceCloseKey(item.label); }}>
+                          {sub.label}
+                        </a>
+                      ) : (
+                        <Link key={sub.label} href={sub.href} className={`${styles.dropdownLink} ${isActive(sub.href) ? styles.activeDropdownLink : ""}`} onClick={() => { document.activeElement?.blur(); setForceCloseKey(item.label); }}>
+                          {sub.label}
+                        </Link>
+                      )
                     ))}
                   </div>
                 )}
@@ -139,18 +167,31 @@ export default function Navbar() {
         aria-hidden={!mobileOpen}
       >
         {navItems.map((item) => (
-          <div key={item.label}>
-            <Link href={item.href} className={styles.mobileNavLink}>
-              {item.label}
-            </Link>
-            {item.dropdown && (
-              <div className={styles.mobileDropdown}>
-                {item.dropdown.map((sub) => (
-                  <Link key={sub.label} href={sub.href} className={styles.mobileDropdownLink}>
-                    {sub.label}
-                  </Link>
-                ))}
-              </div>
+          <div key={item.label} className={styles.mobileNavItem}>
+            {item.dropdown ? (
+              <details className={styles.mobileDetails}>
+                <summary className={styles.mobileNavLink}>
+                  {item.label}
+                  <FiChevronDown className={styles.dropdownIcon} style={{ marginLeft: 'auto' }} />
+                </summary>
+                <div className={styles.mobileDropdown}>
+                  {item.dropdown.map((sub) => (
+                    sub.isExternal ? (
+                      <a key={sub.label} href={sub.href} className={`${styles.mobileDropdownLink} ${isActive(sub.href) ? styles.activeDropdownLink : ""}`} onClick={() => { document.activeElement?.blur(); const d = document.querySelectorAll('details'); d.forEach(el => el.removeAttribute('open')); }}>
+                        {sub.label}
+                      </a>
+                    ) : (
+                      <Link key={sub.label} href={sub.href} className={`${styles.mobileDropdownLink} ${isActive(sub.href) ? styles.activeDropdownLink : ""}`} onClick={() => { document.activeElement?.blur(); const d = document.querySelectorAll('details'); d.forEach(el => el.removeAttribute('open')); }}>
+                        {sub.label}
+                      </Link>
+                    )
+                  ))}
+                </div>
+              </details>
+            ) : (
+              <Link href={item.href} className={styles.mobileNavLink}>
+                {item.label}
+              </Link>
             )}
           </div>
         ))}

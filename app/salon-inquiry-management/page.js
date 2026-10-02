@@ -3,7 +3,7 @@ import FeaturePage from '@/components/FeaturePage';
 
 const path = '/salon-inquiry-management';
 const title = 'Salon Inquiry Management Software | Salon Lead Management | Swalook';
-const description = 'Salon inquiry management software to track enquiries from the first conversation to the appointment, set follow-ups and see which leads became customers.';
+const description = 'Salon inquiry management software to track enquiries from first conversation to appointment. Set follow-ups and see which leads became customers.';
 
 export const metadata = {
   title,

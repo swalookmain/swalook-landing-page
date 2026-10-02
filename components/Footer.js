@@ -8,34 +8,49 @@ import styles from './Footer.module.css';
 export default function Footer() {
   const linkColumns = [
     {
-      title: 'Product',
+      title: 'Customer Management',
       links: [
-        { label: 'Swalook CRM', href: '/salon-crm-features' },
-        { label: 'Mobile App', href: '/mobile-app' },
+        { label: 'Salon CRM', href: '/salon-crm-features' },
+        { label: 'Customer Retention', href: '/customer-retention' },
+        { label: 'Membership', href: '/salon-membership-software' },
+        { label: 'Loyalty', href: '/salon-loyalty-program-software' },
+        { label: 'Inquiry Management', href: '/salon-inquiry-management' },
       ],
     },
     {
-      title: 'Growth',
+      title: 'Daily Operations',
+      links: [
+        { label: 'Appointments', href: '/salon-appointment-scheduling-software' },
+        { label: 'Billing and POS', href: '/salon-invoice-software' },
+        { label: 'Inventory', href: '/salon-inventory-management-software' },
+        { label: 'Staff and Attendance', href: '/salon-staff-attendance-software' },
+        { label: 'Expenses and Purchasing', href: '/salon-expense-management-software' },
+        { label: 'Analytics', href: '/salon-analytics-software' },
+        { label: 'Multi Branch', href: '/multi-branch-salon-software' },
+      ],
+    },
+    {
+      title: 'Growth & Engagement',
       links: [
         { label: 'Customer Acquisition', href: '/customer-acquisition' },
-        { label: 'Customer Retention', href: '/customer-retention' },
         { label: 'WhatsApp Marketing', href: '/whatsapp-marketing' },
-        { label: 'Salon Marketing', href: '/salon-marketing-templates' },
-        { label: 'Inquiry Management', href: '/salon-inquiry-management' },
-        { label: 'Multi-Branch', href: '/multi-branch-salon-software' },
+        { label: 'Salon Marketing', href: '/salon-marketing' },
       ],
     },
     {
-      title: 'Company',
+      title: 'Product Access',
+      links: [
+        { label: 'Mobile App', href: '/mobile-app' },
+        { label: 'Login', href: 'https://v2.swalookcrm.in/' },
+        { label: 'Book a Demo', href: '/contact' },
+      ],
+    },
+    {
+      title: 'Company & Resources',
       links: [
         { label: 'About', href: '/about' },
         { label: 'Contact', href: '/contact' },
         { label: 'Careers', href: '/careers' },
-      ],
-    },
-    {
-      title: 'Resources',
-      links: [
         { label: 'Blog', href: '/blogs' },
         { label: 'FAQs', href: '/faq' },
       ],

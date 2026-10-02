@@ -3,7 +3,7 @@ import FeaturePage from '@/components/FeaturePage';
 
 const path = '/multi-branch-salon-software';
 const title = 'Multi-Branch Salon Software | Manage Multiple Salon Locations | Swalook';
-const description = 'Multi-branch salon software to manage customers, staff, appointments, billing and reports across all your salon locations and compare branch performance.';
+const description = 'Multi-branch salon software to manage customers, staff, appointments, billing and reports across all locations and compare branch performance.';
 
 export const metadata = {
   title,

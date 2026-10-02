@@ -3,7 +3,7 @@ import FeaturePage from '@/components/FeaturePage';
 
 const path = '/customer-retention';
 const title = 'Salon Customer Retention Software | Repeat Customers | Swalook';
-const description = 'Salon customer retention software that shows which customers are due for a visit, at risk or dormant, so you can follow up on WhatsApp and bring them back.';
+const description = 'Salon customer retention software that shows customers due for a visit, at risk or dormant, so you can follow up on WhatsApp and bring them back.';
 
 export const metadata = {
   title,
@@ -39,6 +39,7 @@ export default function CustomerRetentionPage() {
         { href: '/whatsapp-marketing', label: 'WhatsApp Marketing' },
         { href: '/salon-analytics-software', label: 'Customer Analytics' },
         { href: '/salon-loyalty-program-software', label: 'Customer Loyalty' },
+        { href: '/salon-membership-software', label: 'Salon Memberships' },
       ]}
     />
   );

@@ -1,9 +1,9 @@
 .whoSection { padding: var(--section-padding); background: var(--bg-section-alt); }
-.whoContent { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+.whoContent { max-width: 900px; margin: 0 auto; padding: var(--container-padding); }
 .whoContent p { color: var(--text-secondary); font-size: 1.02rem; line-height: 1.8; }
 
 .whyWorkSection { padding: var(--section-padding); background: var(--bg-white); }
-.whyGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.whyGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: var(--container-width); margin: 0 auto; padding: var(--container-padding); }
 .whyCard { background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 28px; transition: all 0.3s ease; position: relative; overflow: hidden; box-shadow: var(--shadow-xs); }
 .whyCard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient-primary); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
 .whyCard:hover::before { transform: scaleX(1); }
@@ -12,7 +12,7 @@
 .whyCard p { font-size: 0.86rem; color: var(--text-secondary); line-height: 1.7; }
 
 .lookingSection { padding: var(--section-padding); background: var(--bg-section-alt); }
-.lookingContent { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+.lookingContent { max-width: 800px; margin: 0 auto; padding: var(--container-padding); }
 .lookingContent p { color: var(--text-secondary); margin-bottom: 18px; }
 .traitsList { display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; }
 .traitItem { display: flex; align-items: center; gap: 10px; font-size: 0.93rem; color: var(--text-secondary); }
@@ -20,7 +20,7 @@
 .emailLink { color: var(--primary); font-weight: 600; }
 
 .openingsSection { padding: var(--section-padding); background: var(--bg-white); }
-.openingsContainer { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+.openingsContainer { max-width: 900px; margin: 0 auto; padding: var(--container-padding); }
 
 /* Allow table to scroll horizontally on small screens */
 .openingsTableWrapper {
@@ -43,7 +43,7 @@
 .noRole p { color: var(--text-secondary); font-size: 0.9rem; }
 
 .teamSection { padding: var(--section-padding); background: var(--bg-section-alt); }
-.teamGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.teamGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: var(--container-width); margin: 0 auto; padding: var(--container-padding); }
 .teamCard { background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 32px; position: relative; box-shadow: var(--shadow-xs); transition: all 0.3s ease; }
 .teamCard:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
 .teamCard::before { content: '"'; position: absolute; top: 16px; left: 24px; font-size: 3.5rem; font-family: var(--font-display); color: var(--primary); opacity: 0.12; line-height: 1; }

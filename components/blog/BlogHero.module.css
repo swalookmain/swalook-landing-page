@@ -20,7 +20,7 @@
   z-index: 1;
   max-width: 920px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: var(--container-padding);
 }
 
 .copy {

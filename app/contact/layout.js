@@ -1,6 +1,6 @@
 const PAGE_TITLE = 'Book a Salon Software Demo | Swalook';
 const PAGE_DESCRIPTION =
-  'Book a demo of Swalook, the salon CRM and management software. See how it helps you manage customers, bring them back on WhatsApp and grow your salon.';
+  'Book a demo of Swalook, the salon CRM and management software. See how it helps you manage customers, follow up on WhatsApp, and grow your salon.';
 
 export const metadata = {
   title: PAGE_TITLE,

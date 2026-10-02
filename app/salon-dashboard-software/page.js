@@ -3,7 +3,7 @@ import FeaturePage from '@/components/FeaturePage';
 
 const path = '/salon-dashboard-software';
 const title = 'Salon Dashboard Software | Swalook';
-const description = 'Salon dashboard software that shows your bookings, sales and staff performance at a glance, with branch views and data you can export for your own reports.';
+const description = 'Salon dashboard software showing bookings, sales and staff performance at a glance. See branch views and export data for your own custom reports.';
 
 export const metadata = {
   title,

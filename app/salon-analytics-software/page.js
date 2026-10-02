@@ -3,7 +3,7 @@ import FeaturePage from '@/components/FeaturePage';
 
 const path = '/salon-analytics-software';
 const title = 'Salon Analytics Software | Salon Business Analytics | Swalook';
-const description = 'Salon analytics software to see your customers, revenue, services, staff and marketing performance in one place, for one salon or every branch you run.';
+const description = 'Salon analytics software to see customers, revenue, services, staff and marketing performance in one place, for one salon or every branch.';
 
 export const metadata = {
   title,

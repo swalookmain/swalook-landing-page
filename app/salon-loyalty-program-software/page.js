@@ -3,7 +3,7 @@ import FeaturePage from '@/components/FeaturePage';
 
 const path = '/salon-loyalty-program-software';
 const title = 'Salon Loyalty Program Software | Customer Loyalty | Swalook';
-const description = 'Salon loyalty program software to reward repeat visits, track customer spending and send offers that keep your regular customers coming back to your salon.';
+const description = 'Salon loyalty program software to reward repeat visits, track spending and send personalized offers that keep your regular customers coming back.';
 
 export const metadata = {
   title,
@@ -39,6 +39,7 @@ export default function LoyaltyPage() {
         { href: '/salon-crm-features', label: 'Salon CRM' },
         { href: '/whatsapp-marketing', label: 'WhatsApp Marketing' },
         { href: '/salon-marketing-templates', label: 'Salon Marketing' },
+        { href: '/salon-membership-software', label: 'Salon Memberships' },
       ]}
     />
   );

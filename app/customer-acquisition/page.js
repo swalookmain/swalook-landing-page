@@ -3,7 +3,7 @@ import FeaturePage from '@/components/FeaturePage';
 
 const path = '/customer-acquisition';
 const title = 'Salon Customer Acquisition Software | Get More Salon Customers | Swalook';
-const description = 'Salon customer acquisition software that connects your CRM with Google and Meta, so you can see where new customers come from and whether they come back.';
+const description = 'Salon customer acquisition software connecting your CRM with Google and Meta. See where new customers come from and whether they return.';
 
 export const metadata = {
   title,
