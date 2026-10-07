@@ -60,15 +60,29 @@ export default function BlogIndex({ posts: sourcePosts, categories }) {
     );
   }, [posts, activeCategory, searchQuery]);
 
-  const displayCategories = categories.map((category) => {
-    const name = category.name || category.label;
-    const slug = category.slug || name.toLowerCase().replace(/\s+/g, '-');
-    return { label: name, slug };
-  });
+  const displayCategories = useMemo(() => {
+    const used = new Set();
+    for (const post of posts) {
+      const names = post.categories?.length
+        ? post.categories.map((item) => item.name || item.label || item)
+        : [post.category];
+      for (const name of names) {
+        if (name) used.add(String(name));
+      }
+    }
+
+    return categories
+      .map((category) => {
+        const name = category.name || category.label;
+        const slug = category.slug || name.toLowerCase().replace(/\s+/g, '-');
+        return { label: name, slug };
+      })
+      .filter((category) => category.label && category.label !== 'All Posts' && used.has(category.label));
+  }, [categories, posts]);
 
   const tabs = [
     { label: 'All Posts', slug: 'all-posts' },
-    ...displayCategories.filter((category) => category.label && category.label !== 'All Posts'),
+    ...displayCategories,
   ];
 
   return (

@@ -103,7 +103,7 @@ function renderImage(data, key) {
   if (!src) return null;
   return (
     <figure key={key} className={styles.imageFigure}>
-      <Image src={src} alt={data.alt || ''} width={800} height={450} className={styles.image} loading="lazy" unoptimized={true} />
+      <Image src={src} alt={data.alt || ''} width={1200} height={675} className={styles.image} loading="lazy" unoptimized={true} />
       {data.caption && <figcaption className={styles.imageCaption} dangerouslySetInnerHTML={{ __html: d(data.caption) }} />}
     </figure>
   );

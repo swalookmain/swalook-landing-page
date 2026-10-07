@@ -1,22 +1,29 @@
-.tabs {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
+.wrap {
+  width: 100%;
+  min-width: 0;
 }
 
-.tab {
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.tab,
+.moreBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 42px;
-  padding: 0 12px;
+  min-height: 38px;
+  padding: 0 14px;
   text-align: center;
   white-space: nowrap;
   border-radius: var(--radius-full);
   border: 1px solid var(--border-color);
   background: rgba(255, 255, 255, 0.95);
   color: var(--text-secondary);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
   transition:
@@ -26,7 +33,8 @@
     background var(--transition-base);
 }
 
-.tab:hover {
+.tab:hover,
+.moreBtn:hover {
   transform: translateY(-1px);
   border-color: var(--border-hover);
   color: var(--primary);
@@ -39,65 +47,33 @@
   box-shadow: 0 10px 20px rgba(0, 188, 212, 0.22);
 }
 
-@media (max-width: 1023px) {
-  .tabs {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+.moreBtn {
+  border-style: dashed;
+  color: var(--primary);
+  background: rgba(0, 188, 212, 0.06);
 }
 
 @media (max-width: 768px) {
   .tabs {
-    display: flex;
-    flex-wrap: nowrap !important;
+    flex-wrap: nowrap;
     overflow-x: auto;
-    padding-bottom: 8px;
+    padding-bottom: 6px;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
-    justify-content: flex-start;
-    width: 100%;
-    max-width: 100vw;
+    scrollbar-width: thin;
   }
 
-  .tab {
-    white-space: nowrap;
-    flex-shrink: 0 !important;
-    display: inline-flex;
+  .tab,
+  .moreBtn {
+    flex-shrink: 0;
   }
 
   .tabs::-webkit-scrollbar {
     height: 4px;
   }
 
-  .tabs::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
   .tabs::-webkit-scrollbar-thumb {
     background: #d1d5db;
-    border-radius: var(--radius-full, 10px);
-  }
-
-  .tabs::-webkit-scrollbar-thumb:hover {
-    background: var(--primary, #9ca3af);
-  }
-}
-
-@media (max-width: 359px) {
-  .tab {
-    min-height: 32px;
-    padding: 0 10px;
-    font-size: 0.74rem;
-  }
-}
-
-@media (max-width: 279px) {
-  .tab {
-    min-height: 28px;
-    padding: 0 8px;
-    font-size: 0.68rem;
-  }
-
-  .tabs {
-    gap: 6px;
+    border-radius: 999px;
   }
 }

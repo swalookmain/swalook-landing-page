@@ -78,9 +78,14 @@ export default function Navbar() {
         { label: 'Book a Demo', href: '/contact' },
       ],
     },
+    {
+      label: 'Blogs/Articles',
+      href: '/blogs',
+    },
   ];
 
-  const isActive = (href) => pathname === href;
+  const isActive = (href) =>
+    pathname === href || (href !== '/' && pathname?.startsWith(`${href}/`));
 
   return (
     <>

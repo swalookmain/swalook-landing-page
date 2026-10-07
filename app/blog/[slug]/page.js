@@ -143,7 +143,17 @@ export default async function BlogArticlePage({ params }) {
   const author = post.author?.name || post.author || 'Swalook Editorial';
   const readTime = post.readTime || (post.readingTimeMinutes ? `${post.readingTimeMinutes} min read` : '6 min read');
   const category = post.category || (post.categories && post.categories[0]?.name) || '';
-  const contentBlocks = post.contentBlocks || [];
+  const contentBlocks = (() => {
+    const blocks = post.contentBlocks || [];
+    const cover = post.coverImage || post.ogImage || post.og_image || null;
+    if (!cover || blocks.length === 0) return blocks;
+    const first = blocks[0];
+    const firstSrc = first?.data?.src || first?.src || '';
+    if (first?.type === 'image' && firstSrc && firstSrc === cover) {
+      return blocks.slice(1);
+    }
+    return blocks;
+  })();
 
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
@@ -177,6 +187,9 @@ export default async function BlogArticlePage({ params }) {
         readTime={readTime}
         publishedAt={publishedAt}
         author={author}
+        excerpt={excerpt}
+        coverImage={post.coverImage || post.ogImage || post.og_image || null}
+        coverImageAlt={post.coverImageAlt || title}
       >
         <BlockRenderer blocks={contentBlocks} />
       </BlogPostLayout>

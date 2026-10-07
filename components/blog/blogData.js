@@ -482,6 +482,23 @@ export function getBlogPostBySlug(slug) {
   };
 }
 
-export function getRelatedBlogPosts(currentSlug) {
-  return blogPosts.filter((post) => post.slug !== currentSlug);
+export function getRelatedBlogPosts(currentSlug, options = {}) {
+  const limit = Number.isFinite(options.limit) ? options.limit : 3;
+  const category = options.category || null;
+  const others = blogPosts.filter((post) => post.slug !== currentSlug);
+
+  const sameCategory = category
+    ? others.filter((post) => post.category === category)
+    : [];
+
+  const ranked = [
+    ...sameCategory,
+    ...others.filter((post) => !sameCategory.some((item) => item.slug === post.slug)),
+  ];
+
+  return ranked.slice(0, limit).map((post) => ({
+    slug: post.slug,
+    title: post.title,
+    href: post.href || `/blog/${post.slug}`,
+  }));
 }

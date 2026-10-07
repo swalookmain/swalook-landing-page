@@ -8,7 +8,9 @@ export default function BlogBreadcrumb({ title }) {
       <span aria-hidden="true">/</span>
       <Link href="/blogs">Blog</Link>
       <span aria-hidden="true">/</span>
-      <span className={styles.current}>{title}</span>
+      <span className={styles.current} title={title}>
+        {title}
+      </span>
     </nav>
   );
 }
