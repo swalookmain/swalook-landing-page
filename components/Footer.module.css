@@ -44,26 +44,6 @@
   max-width: 320px;
 }
 
-.footerLogo {
-  font-family: var(--font-display);
-  font-size: 1.7rem;
-  font-weight: 800;
-  color: var(--primary-light);
-  margin-bottom: 16px;
-  display: inline-block;
-}
-
-.footerLogo:hover {
-  color: var(--primary-light);
-}
-
-.footerTagline {
-  font-size: 0.87rem;
-  color: rgba(255, 255, 255, 0.5);
-  line-height: 1.75;
-  margin-bottom: 24px;
-}
-
 .socialLinks {
   display: flex;
   gap: 10px;
@@ -249,14 +229,6 @@
     padding: 0 12px;
   }
 
-  .footerLogo {
-    font-size: 1.2rem;
-  }
-
-  .footerTagline {
-    font-size: 0.78rem;
-  }
-
   .socialLink {
     width: 30px;
     height: 30px;
@@ -317,15 +289,6 @@
   .footerGrid {
     gap: 14px;
     padding: 0 8px;
-  }
-
-  .footerLogo {
-    font-size: 1rem;
-  }
-
-  .footerTagline {
-    font-size: 0.72rem;
-    margin-bottom: 16px;
   }
 
   .socialLink {

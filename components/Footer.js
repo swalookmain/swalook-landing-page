@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { FaFacebookF, FaYoutube, FaLinkedinIn, FaInstagram } from 'react-icons/fa6';
 import { FiPhone, FiMail, FiMapPin } from 'react-icons/fi';
+import BrandLogo from './BrandLogo';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -79,10 +80,7 @@ export default function Footer() {
         <div className={styles.footerGrid}>
           {/* Brand Column */}
           <div className={styles.footerBrand}>
-            <Link href="/" className={styles.footerLogo}>Swalook</Link>
-            <p className={styles.footerTagline}>
-              The CRM Built to Grow Your Salon
-            </p>
+            <BrandLogo variant="onDark" />
             <div className={styles.contactItem}>
               <FiPhone className={styles.contactIcon} />
               <a href="tel:+919870103761">+91 98701 03761</a>

@@ -1,0 +1,86 @@
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: inline-block;
+  line-height: 1.15;
+}
+
+.logo:hover {
+  transform: scale(1.03);
+  color: var(--primary);
+}
+
+.tagline {
+  font-size: 0.44em;
+  font-weight: 500;
+  display: block;
+  letter-spacing: 0.01em;
+  color: #1B2A4A; /* navy, matching the logo artwork's tagline */
+  margin-top: -2px;
+  white-space: nowrap;
+}
+
+/* Footer: same relative tagline size; muted on dark background */
+.onDark {
+  color: var(--primary-light);
+  margin-bottom: 24px;
+}
+
+.onDark:hover {
+  color: var(--primary-light);
+}
+
+.onDark .tagline {
+  color: rgba(255, 255, 255, 0.5);
+  white-space: normal;
+  max-width: 16em;
+  line-height: 1.35;
+  margin-top: -2px;
+  font-size: 0.44em;
+  text-wrap: balance;
+}
+
+@media (max-width: 480px) {
+  .logo:not(.onDark) .tagline {
+    white-space: normal;
+    font-size: 0.4em;
+    line-height: 1.3;
+    max-width: 14em;
+    text-wrap: balance;
+    margin-top: 2px;
+  }
+}
+
+@media (max-width: 359px) {
+  .logo:not(.onDark) {
+    font-size: 1.3rem;
+  }
+
+  .logo:not(.onDark) .tagline {
+    font-size: 0.46em;
+  }
+
+  .onDark {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 279px) {
+  .logo:not(.onDark) {
+    font-size: 1.1rem;
+  }
+
+  .logo:not(.onDark) .tagline {
+    font-size: 0.38em;
+  }
+
+  .onDark {
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+}

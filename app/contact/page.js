@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { FiMail, FiPhone, FiUserPlus, FiRepeat, FiStar, FiCalendar, FiRefreshCw, FiCheck } from 'react-icons/fi';
+import { FiMail, FiPhone, FiUsers, FiUserPlus, FiRepeat, FiStar, FiCalendar, FiRefreshCw, FiCheck } from 'react-icons/fi';
 import PageHero from '@/components/PageHero';
 import AnimatedSection, { StaggerContainer, StaggerItem } from '@/components/AnimatedSection';
 import contactStyles from './Contact.module.css';
@@ -59,13 +59,32 @@ function DemoInfo() {
 }
 
 const CONTACT_CARDS = [
-  { icon: <FiMail />, title: 'Email', value: 'info@swalook.in', href: 'mailto:info@swalook.in' },
-  { icon: <FiPhone />, title: 'Phone', value: '+91 98701 03761', href: 'tel:+919870103761' },
+  {
+    icon: <FiMail />,
+    title: 'Email',
+    description: 'General inquiries',
+    value: 'info@swalook.in',
+    href: 'mailto:info@swalook.in',
+  },
+  {
+    icon: <FiPhone />,
+    title: 'Phone',
+    description: 'Call us anytime',
+    value: '+91 98701 03761',
+    href: 'tel:+919870103761',
+  },
+  {
+    icon: <FiUsers />,
+    title: 'Channel Partner',
+    description: 'Want to become a Channel partner? Send your profile to:',
+    value: 'hr@swalook.in',
+    href: 'mailto:hr@swalook.in',
+  },
 ];
 
 // The whole card opens the mail app / dialer. "Copy" is there for visitors whose computer has
 // no default email app set up, where a mailto: link does nothing.
-function ContactCard({ icon, title, value, href }) {
+function ContactCard({ icon, title, description, value, href }) {
   const [copied, setCopied] = useState(false);
 
   const copy = async () => {
@@ -95,6 +114,7 @@ function ContactCard({ icon, title, value, href }) {
     <div className={contactStyles.contactCard}>
       <div className={contactStyles.cardIcon}>{icon}</div>
       <h3>{title}</h3>
+      <p className={contactStyles.cardDescription}>{description}</p>
       <p>
         <a className={`${contactStyles.contactLink} ${contactStyles.cardLink}`} href={href}>{value}</a>
       </p>

@@ -64,7 +64,7 @@ describe("Footer", () => {
 
   it("renders the tagline and link columns", () => {
     render(<Footer />);
-    expect(screen.getByText("The CRM Built to Grow Your Salon")).toBeTruthy();
+    expect(screen.getByText("Revenue Generation Engine for Salons")).toBeTruthy();
     for (const heading of ["Product", "Growth", "Company", "Resources", "Legal"]) {
       expect(screen.getByText(heading)).toBeTruthy();
     }

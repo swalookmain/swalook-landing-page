@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FiChevronDown } from 'react-icons/fi';
+import BrandLogo from './BrandLogo';
 import styles from './Navbar.module.css';
 
 // Swalook CRM web app (swalook-frontend-new) — its root redirects to /auth/login.
@@ -91,10 +92,7 @@ export default function Navbar() {
     <>
       <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
         <div className={styles.navContainer}>
-          <Link href="/" className={styles.logo}>
-            Swalook
-            <span className={styles.logoSub}>Revenue Generation Engine for Salons</span>
-          </Link>
+          <BrandLogo />
 
           {/* Desktop Nav */}
           <div className={styles.navLinks}>
