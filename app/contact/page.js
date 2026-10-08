@@ -60,7 +60,6 @@ function DemoInfo() {
 
 const CONTACT_CARDS = [
   { icon: <FiMail />, title: 'Email', value: 'info@swalook.in', href: 'mailto:info@swalook.in' },
-  { icon: <FiMail />, title: 'Sales', value: 'sales@swalook.in', href: 'mailto:sales@swalook.in' },
   { icon: <FiPhone />, title: 'Phone', value: '+91 98701 03761', href: 'tel:+919870103761' },
 ];
 
