@@ -8,10 +8,29 @@ function d(t) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
   return escaped
+    .replace(/\[([^\]]+)\]\(((?:https?:\/\/|\/)[^\s)]+)\)/g, (_, label, href) => {
+      const external = /^https?:\/\//i.test(href);
+      const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : "";
+      return `<a href="${href}"${attrs}>${label}</a>`;
+    })
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/\+\+(.+?)\+\+/g, "<u>$1</u>")
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
     .replace(/\n/g, "<br/>");
+}
+
+function normalizeListItems(raw) {
+  if (!Array.isArray(raw) || raw.length === 0) return [];
+  return raw.map((entry) => {
+    if (typeof entry === "string") return { title: entry, body: "" };
+    if (entry && typeof entry === "object") {
+      return {
+        title: String(entry.title ?? entry.text ?? entry.name ?? ""),
+        body: String(entry.body ?? entry.description ?? ""),
+      };
+    }
+    return { title: "", body: "" };
+  }).filter((item) => item.title.trim() || item.body.trim());
 }
 
 function extractVideoId(url, platform) {
@@ -69,11 +88,16 @@ function renderParagraph(data, key) {
 }
 
 function renderList(data, key) {
-  const items = data.items || [];
+  const items = normalizeListItems(data.items);
   const style = data.style || "unordered";
   if (items.length === 0) return null;
   const listItems = items.map((item, i) => (
-    <li key={i} className={styles.listItem} dangerouslySetInnerHTML={{ __html: d(item) }} />
+    <li key={i} className={styles.listItem}>
+      <div className={styles.listTitle} dangerouslySetInnerHTML={{ __html: d(item.title || item.body) }} />
+      {item.title && item.body ? (
+        <p className={styles.listBody} dangerouslySetInnerHTML={{ __html: d(item.body) }} />
+      ) : null}
+    </li>
   ));
   if (style === "ordered") return <ol key={key} className={styles.orderedList}>{listItems}</ol>;
   return <ul key={key} className={styles.unorderedList}>{listItems}</ul>;
@@ -140,6 +164,15 @@ function renderRichText(data, key) {
     .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, '')
     .replace(/javascript:/gi, 'data-stripped:')
     .replace(/data:text\/html/gi, 'data-stripped:text/html');
+
+  // Feature-link lists were seeded in lowercase SEO anchors — show Title Case in the UI.
+  if (/Explore related Swalook features/i.test(html)) {
+    html = html.replace(/<a(\s[^>]*)>([^<]+)<\/a>/gi, (_, attrs, text) => {
+      const titled = String(text).replace(/\b([a-z])/g, (c) => c.toUpperCase());
+      return `<a${attrs}>${titled}</a>`;
+    });
+  }
+
   return (
     <div key={key} className={styles.richText} dangerouslySetInnerHTML={{ __html: html }} />
   );

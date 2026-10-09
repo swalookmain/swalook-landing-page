@@ -5,7 +5,9 @@
 .paragraph { line-height: 1.85; margin-bottom: 1.15rem; color: #374151; text-align: justify; text-justify: inter-word; hyphens: auto; }
 .unorderedList { padding-left: 1.5rem; margin-bottom: 1.15rem; list-style: disc; }
 .orderedList { padding-left: 1.5rem; margin-bottom: 1.15rem; list-style: decimal; }
-.listItem { margin-bottom: 0.4rem; line-height: 1.75; }
+.listItem { margin-bottom: 0.65rem; line-height: 1.75; }
+.listTitle { font-weight: 600; }
+.listBody { margin: 0.35rem 0 0; font-weight: 400; opacity: 0.92; }
 .quote { border-left: 4px solid var(--primary, #00bcd4); padding: 1rem 1.5rem; margin: 1.5rem 0; background: #f0f9ff; border-radius: 0 0.75rem 0.75rem 0; }
 .quoteText { font-style: italic; font-size: 1.05rem; color: #374151; }
 .quoteCite { display: block; margin-top: 0.5rem; font-size: 0.85rem; color: #6b7280; font-style: normal; }
