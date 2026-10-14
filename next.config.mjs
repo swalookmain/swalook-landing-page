@@ -25,6 +25,9 @@ const nextConfig = {
       { source: '/blogs/:slug', destination: '/blog/:slug', permanent: true },
       // Was a temporary (307) redirect from app/crm/page.js.
       { source: '/crm', destination: '/salon-crm-features', permanent: true },
+      // Login lives on the CRM app, not the marketing site (Navbar already links here).
+      { source: '/login', destination: 'https://v2.swalookcrm.in/', permanent: false },
+      { source: '/auth/login', destination: 'https://v2.swalookcrm.in/', permanent: false },
     ];
   },
   // Switch from static export to server mode so ISR (revalidate) and
