@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { FaFacebookF, FaYoutube, FaLinkedinIn, FaInstagram } from 'react-icons/fa6';
 import { FiPhone, FiMail, FiMapPin } from 'react-icons/fi';
 import BrandLogo from './BrandLogo';
+import { gtagEvent } from '@/lib/analytics';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -113,7 +114,23 @@ export default function Footer() {
             <div key={column.title} className={styles.footerColumn}>
               <h4>{column.title}</h4>
               {column.links.map((link) => (
-                <Link key={link.label} href={link.href} className={styles.footerLink}>
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={styles.footerLink}
+                  onClick={
+                    link.href === '/contact'
+                      ? () =>
+                          gtagEvent('book_demo_click', {
+                            page_path:
+                              typeof window !== 'undefined' ? window.location.pathname : undefined,
+                            section: 'footer',
+                            link_destination: '/contact',
+                            link_label: link.label,
+                          })
+                      : undefined
+                  }
+                >
                   {link.label}
                 </Link>
               ))}

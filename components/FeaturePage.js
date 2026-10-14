@@ -9,6 +9,7 @@ import {
   FiUserPlus, FiRepeat, FiMessageCircle, FiTarget, FiMapPin,
 } from 'react-icons/fi';
 import AnimatedSection, { StaggerContainer, StaggerItem } from './AnimatedSection';
+import { gtagEvent } from '@/lib/analytics';
 import styles from './FeaturePage.module.css';
 
 // Product and solution pages, used for the "Keep Exploring" links.
@@ -346,7 +347,17 @@ export default function FeaturePage({
                 {withCta || 'See how Swalook can help you manage your salon, understand your customers, bring them back and find new ones.'}
               </p>
             )}
-            <Link href="/contact" className="btn btn-primary btn-lg">
+            <Link
+              href="/contact"
+              className="btn btn-primary btn-lg"
+              onClick={() =>
+                gtagEvent('book_demo_click', {
+                  page_path: typeof window !== 'undefined' ? window.location.pathname : undefined,
+                  section: 'feature_cta',
+                  link_destination: '/contact',
+                })
+              }
+            >
               {ctaLabel} <FiArrowRight />
             </Link>
           </div>

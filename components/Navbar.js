@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FiChevronDown } from 'react-icons/fi';
 import BrandLogo from './BrandLogo';
+import { gtagEvent } from '@/lib/analytics';
 import styles from './Navbar.module.css';
 
 // Swalook CRM web app (swalook-frontend-new) — its root redirects to /auth/login.
@@ -130,14 +131,34 @@ export default function Navbar() {
             <a href={LOGIN_URL} className={styles.loginLink}>
               Login
             </a>
-            <Link href="/contact" className={styles.ctaButton}>
+            <Link
+              href="/contact"
+              className={styles.ctaButton}
+              onClick={() =>
+                gtagEvent('book_demo_click', {
+                  page_path: pathname,
+                  section: 'nav',
+                  link_destination: '/contact',
+                })
+              }
+            >
               Book a Demo
             </Link>
           </div>
 
           {/* Mobile: Book a Demo stays visible next to the menu toggle */}
           <div className={styles.mobileBar}>
-            <Link href="/contact" className={styles.mobileBarCta}>
+            <Link
+              href="/contact"
+              className={styles.mobileBarCta}
+              onClick={() =>
+                gtagEvent('book_demo_click', {
+                  page_path: pathname,
+                  section: 'nav_mobile_bar',
+                  link_destination: '/contact',
+                })
+              }
+            >
               Book a Demo
             </Link>
             <button
@@ -201,7 +222,17 @@ export default function Navbar() {
         <a href={LOGIN_URL} className={styles.mobileNavLink}>
           Login
         </a>
-        <Link href="/contact" className={styles.mobileCta}>
+        <Link
+          href="/contact"
+          className={styles.mobileCta}
+          onClick={() =>
+            gtagEvent('book_demo_click', {
+              page_path: pathname,
+              section: 'nav_mobile_menu',
+              link_destination: '/contact',
+            })
+          }
+        >
           Book a Demo
         </Link>
       </div>

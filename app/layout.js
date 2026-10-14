@@ -1,7 +1,10 @@
+import Script from 'next/script';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import AnalyticsPageViews from '@/components/AnalyticsPageViews';
+import { GA_MEASUREMENT_ID } from '@/lib/analytics';
 
 const SITE_URL = 'https://swalook.in';
 
@@ -112,10 +115,23 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en-IN">
       <body>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
+        <AnalyticsPageViews />
         <Navbar />
         <main>{children}</main>
         <Footer />

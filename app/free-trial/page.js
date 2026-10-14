@@ -7,6 +7,7 @@ import PageHero from '@/components/PageHero';
 import AnimatedSection from '@/components/AnimatedSection';
 import styles from '@/components/FormSection.module.css';
 import { validateField, submitForm } from '@/lib/formHelpers';
+import { gtagEvent } from '@/lib/analytics';
 
 const FIELDS = ['name', 'salonName', 'phone', 'email', 'city'];
 const FIELDS_OPTIONAL = ['businessType'];
@@ -55,6 +56,11 @@ export default function FreeTrialPage() {
 
     try {
       await submitForm('/api/free-trial', form);
+      gtagEvent('start_trial', {
+        page_path: '/free-trial',
+        form_name: 'free_trial',
+        method: 'free_trial_form',
+      });
       setStatus('success');
     } catch (err) {
       setSubmitError(err.message || 'Something went wrong. Please try again.');
