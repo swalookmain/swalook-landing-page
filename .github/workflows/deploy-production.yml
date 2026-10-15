@@ -52,18 +52,29 @@ jobs:
     environment: production
     steps:
       - name: Trigger Render deploy
+        env:
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: |
-          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}" 2>/dev/null || echo "000")
+          set -euo pipefail
+          if [ -z "${RENDER_DEPLOY_HOOK_URL:-}" ]; then
+            echo "WARN: RENDER_DEPLOY_HOOK_URL secret is empty."
+            echo "Relying on Render auto-deploy from the GitHub push to main."
+            echo "To re-enable this step: Render → Service → Settings → Deploy Hook → GitHub secret RENDER_DEPLOY_HOOK_URL."
+            exit 0
+          fi
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -X POST "$RENDER_DEPLOY_HOOK_URL" || echo "000")
           if [ "$HTTP_CODE" != "200" ] && [ "$HTTP_CODE" != "202" ]; then
             echo "FAIL: Render deploy hook returned $HTTP_CODE"
             exit 1
           fi
           echo "OK: Render deploy hook triggered (HTTP $HTTP_CODE)"
-  
+
   post-deploy-smoke:
     needs: [deploy]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Wait for Render roll-out
+        run: sleep 90
       - name: Smoke test production
         run: bash .github/scripts/smoke-test.sh "https://swalook-landing-page.onrender.com"
