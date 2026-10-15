@@ -1,0 +1,9 @@
+# Ignore advisories with no usable patched npm release yet.
+[[IgnoredVulns]]
+id = "GHSA-vfj7-8cjw-p6xw"
+reason = "braces@3.0.3 has no fixed release published; tracked until upstream patches"
+
+# Alias / OSV database id for the same braces advisory when reported that way
+[[IgnoredVulns]]
+id = "CVE-2024-4068"
+reason = "Same unfixed braces advisory as GHSA-vfj7-8cjw-p6xw"
