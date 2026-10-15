@@ -1,9 +1,11 @@
-# Ignore advisories with no usable patched npm release yet.
+# braces@3.0.3 has no patched npm release yet (OSV GHSA-vfj7-8cjw-p6xw).
+# Prefer PackageOverrides — IgnoredVulns IDs were reported as "unused" by osv-scanner v2.6.
+[[PackageOverrides]]
+name = "braces"
+ecosystem = "npm"
+vulnerability.ignore = true
+reason = "No fixed braces release published upstream yet"
+
 [[IgnoredVulns]]
 id = "GHSA-vfj7-8cjw-p6xw"
-reason = "braces@3.0.3 has no fixed release published; tracked until upstream patches"
-
-# Alias / OSV database id for the same braces advisory when reported that way
-[[IgnoredVulns]]
-id = "CVE-2024-4068"
-reason = "Same unfixed braces advisory as GHSA-vfj7-8cjw-p6xw"
+reason = "No fixed braces release published upstream yet"

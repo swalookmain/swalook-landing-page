@@ -90,8 +90,9 @@ jobs:
           grep " osv-scanner_linux_amd64$" osv-scanner_SHA256SUMS | sha256sum -c -
           chmod +x osv-scanner_linux_amd64
           cd "$GITHUB_WORKSPACE"
-          # Uses osv-scanner.toml to ignore unfixed braces; lockfiles must stay patched for sharp/source-map-js.
-          "$RUNNER_TEMP/osv-scanner_linux_amd64" scan source --recursive --config=osv-scanner.toml .
+          # Absolute --config applies to all lockfiles (bun.lock). Overrides ignore unfixed braces.
+          "$RUNNER_TEMP/osv-scanner_linux_amd64" scan source --recursive \
+            --config="$GITHUB_WORKSPACE/osv-scanner.toml" .
         shell: bash
 
       - name: Trivy vulnerability & secret scan
