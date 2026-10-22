@@ -4,7 +4,8 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import AnalyticsPageViews from '@/components/AnalyticsPageViews';
-import { GA_MEASUREMENT_ID } from '@/lib/analytics';
+import AdsClickConversions from '@/components/AdsClickConversions';
+import { GA_MEASUREMENT_ID, AW_CONVERSION_ID } from '@/lib/analytics';
 
 const SITE_URL = 'https://swalook.in';
 
@@ -125,6 +126,7 @@ export default function RootLayout({ children }) {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${GA_MEASUREMENT_ID}');
+            gtag('config', '${AW_CONVERSION_ID}');
           `}
         </Script>
         <script
@@ -136,6 +138,7 @@ export default function RootLayout({ children }) {
         <main>{children}</main>
         <Footer />
         <WhatsAppButton />
+        <AdsClickConversions />
       </body>
     </html>
   );

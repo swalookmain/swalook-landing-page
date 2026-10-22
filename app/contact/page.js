@@ -8,7 +8,13 @@ import AnimatedSection, { StaggerContainer, StaggerItem } from '@/components/Ani
 import contactStyles from './Contact.module.css';
 import formStyles from '@/components/FormSection.module.css';
 import { validateField, submitForm } from '@/lib/formHelpers';
-import { gtagEvent } from '@/lib/analytics';
+import {
+  AW_CONVERSIONS,
+  gtagAdsConversion,
+  gtagEvent,
+  gtagSetUserData,
+  toIndiaE164,
+} from '@/lib/analytics';
 
 // Fields checked on blur/submit. city, branches and currentSoftware are optional free text.
 const VALIDATED_FIELDS = ['name', 'salonName', 'mobile', 'email', 'message'];
@@ -175,11 +181,20 @@ export default function ContactPage() {
 
     try {
       await submitForm('/api/contact', form);
+      // GA4 lead event (existing)
       gtagEvent('generate_lead', {
         page_path: '/contact',
         form_name: 'book_demo',
         method: 'contact_form',
       });
+      // Google Ads enhanced conversion — only on successful submit (Thank you path)
+      const phoneNumber = toIndiaE164(form.mobile);
+      gtagSetUserData({
+        email: form.email,
+        phoneNumber,
+      });
+      gtagAdsConversion(AW_CONVERSIONS.demoForm);
+      gtagEvent('demo_form_submit');
       setStatus('success');
     } catch (err) {
       setSubmitError(err.message || 'Something went wrong. Please try again.');
