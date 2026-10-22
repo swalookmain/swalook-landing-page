@@ -1,5 +1,4 @@
-# braces@3.0.3 has no patched npm release yet (OSV GHSA-vfj7-8cjw-p6xw).
-# Prefer PackageOverrides — IgnoredVulns IDs were reported as "unused" by osv-scanner v2.6.
+# braces@3.0.3 has no patched npm release yet.
 [[PackageOverrides]]
 name = "braces"
 ecosystem = "npm"
@@ -9,3 +8,7 @@ reason = "No fixed braces release published upstream yet"
 [[IgnoredVulns]]
 id = "GHSA-vfj7-8cjw-p6xw"
 reason = "No fixed braces release published upstream yet"
+
+[[IgnoredVulns]]
+id = "GHSA-vfj7-8cjw-p6xm"
+reason = "Same unfixed braces advisory (alternate GHSA id)"
