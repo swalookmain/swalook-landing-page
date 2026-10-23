@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import AnalyticsPageViews from '@/components/AnalyticsPageViews';
 import AdsClickConversions from '@/components/AdsClickConversions';
-import { GA_MEASUREMENT_ID, AW_CONVERSION_ID } from '@/lib/analytics';
+import { GA_MEASUREMENT_ID, AW_CONVERSION_ID, CLARITY_PROJECT_ID } from '@/lib/analytics';
 
 const SITE_URL = 'https://swalook.in';
 
@@ -127,6 +127,15 @@ export default function RootLayout({ children }) {
             gtag('js', new Date());
             gtag('config', '${GA_MEASUREMENT_ID}');
             gtag('config', '${AW_CONVERSION_ID}');
+          `}
+        </Script>
+        <Script id="microsoft-clarity" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "${CLARITY_PROJECT_ID}");
           `}
         </Script>
         <script
