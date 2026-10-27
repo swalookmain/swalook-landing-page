@@ -1,6 +1,8 @@
+import { allFaqJsonLd } from './faq-data';
+
 const PAGE_TITLE = 'Salon CRM & Software FAQs | Swalook';
 const PAGE_DESCRIPTION =
-  'Answers to common questions about Swalook salon CRM software: appointments, billing, WhatsApp follow-ups, getting new customers and booking a demo.';
+  'Answers to common questions about Swalook salon CRM software: appointments, billing, POS, inventory, multi-branch analytics, WhatsApp follow-ups, and booking a demo.';
 
 export const metadata = {
   title: PAGE_TITLE,
@@ -21,5 +23,13 @@ export const metadata = {
 };
 
 export default function FAQLayout({ children }) {
-  return children;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(allFaqJsonLd) }}
+      />
+      {children}
+    </>
+  );
 }

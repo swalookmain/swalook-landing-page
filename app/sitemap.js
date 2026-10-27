@@ -30,6 +30,7 @@ const PAGES = [
   ['/contact', 0.8, 'monthly'],
   ['/about', 0.7, 'monthly'],
   ['/faq', 0.7, 'monthly'],
+  ['/frequently-asked-questions', 0.7, 'monthly'],
   ['/blogs', 0.8, 'weekly'],
   ['/careers', 0.5, 'monthly'],
   ['/privacy-policy', 0.3, 'yearly'],

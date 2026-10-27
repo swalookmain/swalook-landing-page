@@ -109,6 +109,22 @@ const organizationJsonLd = {
       url: SITE_URL,
       publisher: { '@id': `${SITE_URL}/#organization` },
     },
+    {
+      '@type': 'SoftwareApplication',
+      '@id': `${SITE_URL}/#software`,
+      name: 'Swalook',
+      operatingSystem: 'All',
+      applicationCategory: 'BusinessApplication',
+      url: SITE_URL,
+      description:
+        'Swalook is an all-in-one cloud-based Salon Management Software and Salon CRM designed to automate appointments, billing POS, inventory tracking, and marketing.',
+      offers: {
+        '@type': 'Offer',
+        priceCurrency: 'INR',
+        price: 'Contact for pricing',
+      },
+      publisher: { '@id': `${SITE_URL}/#organization` },
+    },
   ],
 };
 

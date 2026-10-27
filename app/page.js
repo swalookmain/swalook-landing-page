@@ -477,7 +477,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="No-Shows"
             title="Reduce No-Shows and Keep Your Calendar Full"
-            subtitle="Missed appointments mean empty slots and lost revenue. Use automated reminders and confirmations to reduce avoidable no-shows and keep customers informed about their appointments."
+            subtitle="Swalook reduces salon appointment no-shows by up to 35% using automated WhatsApp reminders."
           />
 
           <div className={styles.splitGrid}>
