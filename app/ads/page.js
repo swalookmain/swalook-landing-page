@@ -514,15 +514,21 @@ export default function AdsLandingPage() {
       </section>
 
       <footer className={styles.foot}>
-        <div className={styles.wrap}>
-          <BrandLogo asLink={false} />
-          <p>Manage your salon. Understand your customers. Grow your business.</p>
-          <p className={styles.footMeta}>
-            <a href="/privacy-policy">Privacy Policy</a>
-            <span aria-hidden="true"> · </span>
-            <a href="/terms-conditions">Terms and Conditions</a>
+        <div className={styles.footGlow} aria-hidden="true" />
+        <AdsReveal className={`${styles.wrap} ${styles.footInner}`}>
+          <div className={styles.footBrand}>
+            <BrandLogo asLink={false} variant="onDark" />
+          </div>
+          <p className={styles.footPitch}>
+            Manage your salon. Understand your customers. Grow your business.
           </p>
-        </div>
+          <div className={styles.footRule} aria-hidden="true" />
+          <nav className={styles.footMeta} aria-label="Legal">
+            <a href="/privacy-policy">Privacy Policy</a>
+            <span className={styles.footDot} aria-hidden="true" />
+            <a href="/terms-conditions">Terms and Conditions</a>
+          </nav>
+        </AdsReveal>
       </footer>
 
       <div className={styles.stickyBar}>

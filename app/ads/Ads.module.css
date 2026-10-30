@@ -1731,24 +1731,125 @@
 }
 
 .foot {
-  background: #003940;
-  color: rgba(255, 255, 255, 0.7);
-  padding: 28px 0 calc(28px + env(safe-area-inset-bottom, 0px));
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 90% at 50% -20%, rgba(0, 188, 212, 0.16), transparent 58%),
+    linear-gradient(180deg, #01363d 0%, #011c21 100%);
+  color: rgba(232, 247, 250, 0.72);
+  padding: 52px 0 calc(44px + env(safe-area-inset-bottom, 0px));
   text-align: center;
+  border-top: 1px solid rgba(0, 188, 212, 0.18);
 }
 
-.foot p {
-  margin: 8px 0 0;
-  font-size: 0.85rem;
+.foot::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 1;
+  width: min(240px, 42vw);
+  height: 2px;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, #00bcd4, transparent);
+  pointer-events: none;
+}
+
+.footGlow {
+  position: absolute;
+  width: 520px;
+  height: 240px;
+  left: 50%;
+  top: -150px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: rgba(0, 188, 212, 0.2);
+  filter: blur(72px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.footInner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.footBrand {
+  display: flex;
+  justify-content: center;
+}
+
+.footBrand > * {
+  margin-bottom: 0;
+  font-size: 1.85rem;
+}
+
+/* Pitch is the supporting line — wordmark only in this close */
+.footBrand span {
+  display: none;
+}
+
+.footPitch {
+  margin: 0;
+  max-width: 36em;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  text-wrap: balance;
+}
+
+.footRule {
+  width: 40px;
+  height: 1px;
+  margin: 2px 0;
+  background: rgba(0, 188, 212, 0.4);
+}
+
+.footMeta {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px 4px;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+.footDot {
+  width: 3px;
+  height: 3px;
+  margin: 0 10px;
+  border-radius: 50%;
+  background: rgba(0, 188, 212, 0.55);
 }
 
 .footMeta a {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.52);
   text-decoration: none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 2px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .footMeta a:hover {
-  color: #fff;
+  color: #00bcd4;
+  border-bottom-color: rgba(0, 188, 212, 0.5);
+}
+
+.footMeta a:focus-visible {
+  outline: 2px solid #00bcd4;
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
 /* ---------- Mobile sticky bar ---------- */
