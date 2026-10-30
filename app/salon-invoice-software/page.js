@@ -32,6 +32,7 @@ export default function InvoicesPage() {
         { title: 'Discounts', desc: 'Apply discounts and offers when you bill.' },
         { title: 'Sales History', desc: 'See past bills and what each customer has bought.' },
       ]}
+      screenshot={{ src: "/images/crm-invoices.png", alt: "Salon billing software screen in Swalook showing a customer bill, services and payment details.", caption: "Bills, services and payment records in one place" }}
       related={[
         { href: '/salon-crm-features', label: 'Salon CRM' },
         { href: '/salon-appointment-scheduling-software', label: 'Appointments' },

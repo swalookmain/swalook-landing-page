@@ -30,6 +30,7 @@ export default function WhatsAppMarketingPage() {
         { title: 'Customer Reactivation', desc: 'Invite customers who stopped visiting to come back.' },
         { title: 'Promotional Campaigns', desc: 'Send offers to the customers they are most relevant to.' },
       ]}
+      screenshot={{ src: "/images/crm-whatsapp.png", alt: "Swalook WhatsApp inbox for salon customer follow-ups and replies.", caption: "Review and send CRM follow-ups on WhatsApp" }}
       steps={['Find', 'Prepare', 'Review', 'Confirm', 'Send']}
       ctaLabel="See WhatsApp Automation"
       related={[

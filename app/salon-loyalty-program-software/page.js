@@ -34,6 +34,7 @@ export default function LoyaltyPage() {
         'Send offers that fit each customer.',
         'Get regular customers to refer their friends.',
       ]}
+      screenshot={{ src: "/images/crm-loyalty.png", alt: "Swalook loyalty program with memberships, points and active customers.", caption: "Loyalty plans, points and active customers" }}
       related={[
         { href: '/customer-retention', label: 'Customer Retention' },
         { href: '/salon-crm-features', label: 'Salon CRM' },

@@ -15,6 +15,20 @@
   color: var(--primary);
 }
 
+/* Ads LP: brand mark without navigating away to home */
+.logoStatic {
+  cursor: default;
+}
+
+.logoStatic:hover {
+  transform: none;
+  color: var(--primary);
+}
+
+.logoStatic.onDark:hover {
+  color: var(--primary-light);
+}
+
 .tagline {
   font-size: 0.44em;
   font-weight: 500;

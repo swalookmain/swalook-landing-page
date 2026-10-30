@@ -1,8 +1,6 @@
 import Script from 'next/script';
 import './globals.css';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import WhatsAppButton from '@/components/WhatsAppButton';
+import SiteChrome from '@/components/SiteChrome';
 import AnalyticsPageViews from '@/components/AnalyticsPageViews';
 import AdsClickConversions from '@/components/AdsClickConversions';
 import { GA_MEASUREMENT_ID, AW_CONVERSION_ID, CLARITY_PROJECT_ID } from '@/lib/analytics';
@@ -159,10 +157,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
         <AnalyticsPageViews />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppButton />
+        <SiteChrome>{children}</SiteChrome>
         <AdsClickConversions />
       </body>
     </html>

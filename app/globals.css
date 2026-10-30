@@ -112,6 +112,11 @@ main {
   overflow-x: clip;
 }
 
+/* Ads LP uses window scroll so in-page #demo / #how / #faq anchors work */
+main.adsLanding {
+  overflow-x: visible;
+}
+
 /* Visually hidden, still read by screen readers */
 .sr-only {
   position: absolute;

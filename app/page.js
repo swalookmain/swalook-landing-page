@@ -104,17 +104,17 @@ const useCases = [
   {
     title: 'Independent Salons',
     desc: 'Manage customers, appointments and daily operations from one place.',
-    image: '/images/feature-appointments.png',
+    image: '/images/crm-appointments.png',
   },
   {
     title: 'Growing Salons',
     desc: 'Get better visibility into customers, staff and revenue.',
-    image: '/images/feature-marketing.png',
+    image: '/images/crm-invoices.png',
   },
   {
     title: 'Multi-Branch Salons',
     desc: 'Manage multiple locations and compare performance.',
-    image: '/images/feature-profiles.png',
+    image: '/images/crm-customers.png',
   },
 ];
 
@@ -226,53 +226,15 @@ export default function HomePage() {
                     <span />
                     <span />
                   </div>
-                  <div className={styles.heroDeviceBody}>
-                    <div className={styles.heroDeviceHeader}>
-                      <div>
-                        <p className={styles.visualKicker}>Swalook CRM</p>
-                        <h3>Customers who need attention</h3>
-                      </div>
-                      <span className={styles.visualStatus}>Today</span>
-                    </div>
-
-                    <div className={styles.heroMetricRow}>
-                      <div className={styles.heroMetric}>
-                        <span><FiCalendar /></span>
-                        <p>Due for a visit</p>
-                      </div>
-                      <div className={styles.heroMetric}>
-                        <span><FiAlertCircle /></span>
-                        <p>At risk</p>
-                      </div>
-                      <div className={styles.heroMetric}>
-                        <span><FiMoon /></span>
-                        <p>Dormant</p>
-                      </div>
-                    </div>
-
-                    <div className={styles.heroPanel}>
-                      <div className={styles.panelHeader}>
-                        <h4>Review. Click. Confirm.</h4>
-                        <span>WhatsApp follow-ups</span>
-                      </div>
-                      <div className={styles.panelList}>
-                        <div>
-                          <FiCheckCircle />
-                          <span>Customers found from your CRM</span>
-                        </div>
-                        <div>
-                          <FiCheckCircle />
-                          <span>Follow-up messages ready to review</span>
-                        </div>
-                        <div>
-                          <FiCheckCircle />
-                          <span>Confirm and send on WhatsApp</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <Image
+                    src="/images/crm-customers.png"
+                    alt="Salon CRM software in Swalook showing customer profiles, visit history and customer status."
+                    width={1600}
+                    height={880}
+                    className={styles.heroShot}
+                    priority
+                  />
                 </div>
-
               </div>
             </AnimatedSection>
           </div>
@@ -323,10 +285,10 @@ export default function HomePage() {
             <AnimatedSection direction="left">
               <div className={styles.aboutImage}>
                 <Image
-                  src="/images/feature-profiles.png"
-                  alt="Swalook salon CRM customer profile with visit history"
-                  width={600}
-                  height={600}
+                  src="/images/crm-customers.png"
+                  alt="Salon CRM software in Swalook showing customer profiles, visit history and customer status."
+                  width={1600}
+                  height={880}
                   className={styles.aboutImg}
                   priority={false}
                 />
@@ -440,10 +402,10 @@ export default function HomePage() {
             <AnimatedSection direction="left">
               <div className={styles.splitMedia}>
                 <Image
-                  src="/images/feature-marketing.png"
-                  alt="Swalook customer retention and follow-up dashboard"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 520px"
+                  src="/images/crm-whatsapp.png"
+                  alt="Swalook WhatsApp inbox for salon customer follow-ups and replies."
+                  width={1600}
+                  height={880}
                   className={styles.splitMediaImage}
                 />
               </div>
@@ -496,10 +458,10 @@ export default function HomePage() {
             <AnimatedSection direction="right">
               <div className={styles.splitMedia}>
                 <Image
-                  src="/images/feature-appointments.png"
-                  alt="Appointment reminder and confirmation workflow visual for Swalook"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 520px"
+                  src="/images/crm-appointments.png"
+                  alt="Swalook salon appointment calendar showing daily bookings and staff availability."
+                  width={1600}
+                  height={880}
                   className={styles.splitMediaImage}
                 />
               </div>
@@ -522,8 +484,8 @@ export default function HomePage() {
                     <Image
                       src={item.image}
                       alt={item.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 560px"
+                      width={1600}
+                      height={880}
                       className={styles.featureImage}
                       priority={i === 0}
                     />

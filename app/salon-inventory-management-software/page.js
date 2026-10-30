@@ -36,7 +36,7 @@ export default function InventoryPage() {
         "Track low stock alerts and reorder"
       ]}
       flowTitle="Purchase to Consumption Workflow"
-      screenshot={{ src: "/images/inventory.png", alt: "Inventory stock screenshot", caption: "Track available products and monitor usage" }}
+      screenshot={{ src: "/images/crm-inventory.png", alt: "Swalook inventory screen showing stock levels, product list and status.", caption: "Track available products and monitor usage" }}
       useCases={[
         { title: "Low Stock Alerts", desc: "Get notified when essential products are running low so you never run out during a busy day." },
         { title: "Service Consumption", desc: "Track exactly how much product is used per service to manage costs and reduce waste." }

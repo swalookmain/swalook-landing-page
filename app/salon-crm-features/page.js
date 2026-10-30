@@ -41,7 +41,7 @@ export default function SalonCrmFeaturesPage() {
         "Send targeted WhatsApp follow-ups"
       ]}
       flowTitle="Customer History Workflow"
-      screenshot={{ src: "/images/feature-profiles.png", alt: "Customer profile screenshot", caption: "Customer profile and visit history overview" }}
+      screenshot={{ src: "/images/crm-customers.png", alt: "Salon CRM software in Swalook showing customer profiles, visit history and customer status.", caption: "Customer profiles, visit history and customer status" }}
       useCases={[
         { title: "Due for a Visit", desc: "Easily identify customers who are due for their next appointment and send a friendly reminder to book." },
         { title: "At Risk Customers", desc: "Find customers whose visits are slowing down before they stop coming altogether and win them back." },

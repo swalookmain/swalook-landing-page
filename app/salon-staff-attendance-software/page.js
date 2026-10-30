@@ -36,7 +36,7 @@ export default function StaffPage() {
         "Review daily attendance and performance reports"
       ]}
       flowTitle="Attendance to Performance Workflow"
-      screenshot={{ src: "/images/attendance.png", alt: "Staff attendance screenshot", caption: "Manage team attendance and performance metrics" }}
+      screenshot={{ src: "/images/crm-attendance.png", alt: "Swalook staff attendance screen showing present, absent and team overview.", caption: "Manage team attendance and performance metrics" }}
       useCases={[
         { title: "Shift Management", desc: "Plan shifts efficiently to ensure you have the right number of stylists available during peak hours." },
         { title: "Commissions", desc: "Automatically calculate staff commissions based on the services they complete, saving time on payroll." }

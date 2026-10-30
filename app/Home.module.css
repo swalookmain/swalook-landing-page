@@ -219,6 +219,14 @@
   overflow: hidden;
 }
 
+.heroShot {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: top center;
+}
+
 .heroDeviceBar {
   display: flex;
   align-items: center;
@@ -507,13 +515,14 @@
   border: 1px solid var(--border-color);
   background: linear-gradient(180deg, rgba(0, 188, 212, 0.06), rgba(255, 255, 255, 0.9));
   box-shadow: var(--shadow-md);
-  min-height: 380px;
 }
 
 .aboutImg {
-  object-fit: cover;
+  object-fit: contain;
+  object-position: top center;
   width: 100%;
-  height: 100%;
+  height: auto;
+  display: block;
 }
 
 .aboutContent h2 {
@@ -690,7 +699,6 @@
 
 .splitMedia {
   position: relative;
-  min-height: 420px;
   overflow: hidden;
   border-radius: 28px;
   border: 1px solid var(--border-color);
@@ -699,7 +707,11 @@
 }
 
 .splitMediaImage {
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: top center;
 }
 
 .featureList {
@@ -847,7 +859,6 @@
 
 .featureImageBox {
   position: relative;
-  min-height: 320px;
   overflow: hidden;
   border-radius: 28px;
   border: 1px solid var(--border-color);
@@ -856,7 +867,11 @@
 }
 
 .featureImage {
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: top center;
 }
 
 .featureTextBox h3 {
@@ -1168,7 +1183,7 @@
   .splitMedia,
   .featureImageBox,
   .aboutImage {
-    min-height: 280px;
+    min-height: 0;
   }
 
   .heroDeviceBody {
@@ -1651,7 +1666,7 @@
   }
 
   .aboutImage {
-    min-height: 160px;
+    min-height: 0;
     border-radius: 14px;
   }
 
@@ -1683,7 +1698,7 @@
   .heroVisualFrame,
   .splitMedia,
   .featureImageBox {
-    min-height: 160px;
+    min-height: 0;
   }
 
   .heroMetricRow {
@@ -1753,7 +1768,7 @@
   }
 
   .splitMedia {
-    min-height: 160px;
+    min-height: 0;
   }
 
   .featureList {
@@ -1810,7 +1825,7 @@
   }
 
   .featureImageBox {
-    min-height: 140px;
+    min-height: 0;
     border-radius: 14px;
   }
 

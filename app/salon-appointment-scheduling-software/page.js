@@ -38,7 +38,7 @@ export default function AppointmentsPage() {
         "Complete the appointment and generate the bill"
       ]}
       flowTitle="Appointment Workflow"
-      screenshot={{ src: "/images/appointment.png", alt: "Appointment calendar screenshot", caption: "Clear view of daily bookings and staff availability" }}
+      screenshot={{ src: "/images/crm-appointments.png", alt: "Swalook salon appointment calendar showing daily bookings and staff availability.", caption: "Daily bookings and staff availability" }}
       useCases={[
         { title: "Staff Availability", desc: "Check which stylists are free and book a walk-in customer instantly without double-booking." },
         { title: "Reduce No-Shows", desc: "Automated reminders ensure customers don't forget their scheduled appointments, keeping your calendar full." }
