@@ -11,7 +11,7 @@ export const metadata = {
     },
   },
   alternates: {
-    canonical: '/ads',
+    canonical: '/salon-software',
   },
 };
 

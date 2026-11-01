@@ -125,7 +125,7 @@ export default function AdsLeadForm({
       ...form,
       ...attribution,
       formLoadedAt: formLoadedAtRef.current,
-      landingPage: typeof window !== 'undefined' ? window.location.href.split('#')[0] : '/ads',
+      landingPage: typeof window !== 'undefined' ? window.location.href.split('#')[0] : '/salon-software',
       formId,
     };
 
@@ -133,7 +133,7 @@ export default function AdsLeadForm({
       await submitForm('/api/ads-lead', payload, { timeoutMs: 15000 });
 
       gtagEvent('generate_lead', {
-        page_path: '/ads',
+        page_path: '/salon-software',
         form_name: 'ads_inquiry',
         method: 'ads_form',
         form_id: formId,
@@ -144,7 +144,7 @@ export default function AdsLeadForm({
       gtagSetUserData({ phoneNumber, email });
       gtagAdsConversion(AW_CONVERSIONS.demoForm);
       gtagEvent('ads_form_submit', {
-        page_path: '/ads',
+        page_path: '/salon-software',
         form_name: 'ads_inquiry',
         form_id: formId,
       });
@@ -155,7 +155,7 @@ export default function AdsLeadForm({
       setSubmitError(message);
       setStatus('error');
       gtagEvent('ads_form_error', {
-        page_path: '/ads',
+        page_path: '/salon-software',
         form_name: 'ads_inquiry',
         form_id: formId,
         error_message: message.slice(0, 120),

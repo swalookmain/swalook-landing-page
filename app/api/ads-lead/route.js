@@ -75,7 +75,7 @@ export async function POST(request) {
     const utmCampaign = clean(body.utm_campaign, 120);
     const utmContent = clean(body.utm_content, 120);
     const utmTerm = clean(body.utm_term, 120);
-    const landingPage = clean(body.landingPage, 300) || '/ads';
+    const landingPage = clean(body.landingPage, 300) || '/salon-software';
     const formId = clean(body.formId, 40) || 'ads';
 
     if (!name || !salonName || !mobile) {

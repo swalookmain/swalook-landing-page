@@ -7,7 +7,8 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 
 export default function SiteChrome({ children }) {
   const pathname = usePathname() || '';
-  const isAdsPage = pathname === '/ads' || pathname.startsWith('/ads/');
+  const isAdsPage =
+    pathname === '/salon-software' || pathname.startsWith('/salon-software/');
 
   return (
     <>
