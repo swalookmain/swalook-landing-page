@@ -12,3 +12,10 @@ reason = "No fixed braces release published upstream yet"
 [[IgnoredVulns]]
 id = "GHSA-vfj7-8cjw-p6xm"
 reason = "Same unfixed braces advisory (alternate GHSA id)"
+
+# GHSA range is <11.0.1, but the documented bug is minimatch 10.x
+# optimizationLevel>=2. ESLint still depends on minimatch 3.x, and a
+# blanket v11 override breaks that callable API.
+[[IgnoredVulns]]
+id = "GHSA-g3hv-75wg-m249"
+reason = "No compatible patched minimatch for eslint 3.x; v11 override breaks lint"
