@@ -132,15 +132,19 @@ export default function RootLayout({ children }) {
       <body>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
         />
-        <Script id="ga4-init" strategy="afterInteractive">
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${AW_CONVERSION_ID}`}
+          strategy="beforeInteractive"
+        />
+        <Script id="google-tag-init" strategy="beforeInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${GA_MEASUREMENT_ID}');
-            gtag('config', '${AW_CONVERSION_ID}');
+            gtag('config', '${AW_CONVERSION_ID}', { allow_enhanced_conversions: true });
           `}
         </Script>
         <Script id="microsoft-clarity" strategy="afterInteractive">

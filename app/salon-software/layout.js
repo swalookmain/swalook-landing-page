@@ -1,3 +1,5 @@
+import AdsPageTracking from './AdsPageTracking';
+
 export const metadata = {
   title: 'Salon Management Software for Indian Salons | Swalook',
   description:
@@ -16,5 +18,10 @@ export const metadata = {
 };
 
 export default function AdsLayout({ children }) {
-  return children;
+  return (
+    <>
+      <AdsPageTracking />
+      {children}
+    </>
+  );
 }

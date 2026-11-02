@@ -2,7 +2,16 @@ export const PHONE_DISPLAY = '+91 98701 03761';
 export const PHONE_TEL = 'tel:+919870103761';
 export const WHATSAPP_NUMBER = '919870103761';
 export const CONTACT_EMAIL = 'info@swalook.in';
-export const ATTR_KEYS = ['gclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+export const ATTR_KEYS = [
+  'gclid',
+  'gbraid',
+  'wbraid',
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'utm_content',
+  'utm_term',
+];
 export const ATTR_STORAGE_KEY = 'swalook_ads_attribution';
 
 export const BRANCH_OPTIONS = [

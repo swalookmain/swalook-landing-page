@@ -70,6 +70,8 @@ export async function POST(request) {
     const branches = clean(body.branches, 40);
     const priority = clean(body.priority, 80);
     const gclid = clean(body.gclid, 120);
+    const gbraid = clean(body.gbraid, 120);
+    const wbraid = clean(body.wbraid, 120);
     const utmSource = clean(body.utm_source, 80);
     const utmMedium = clean(body.utm_medium, 80);
     const utmCampaign = clean(body.utm_campaign, 120);
@@ -130,6 +132,8 @@ export async function POST(request) {
       ['Landing page', landingPage],
       ['Form', formId],
       ['gclid', gclid || 'Not provided'],
+      ['gbraid', gbraid || 'Not provided'],
+      ['wbraid', wbraid || 'Not provided'],
       ['utm_source', utmSource || 'Not provided'],
       ['utm_medium', utmMedium || 'Not provided'],
       ['utm_campaign', utmCampaign || 'Not provided'],

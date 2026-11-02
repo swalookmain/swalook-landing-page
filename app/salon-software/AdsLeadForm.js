@@ -142,7 +142,9 @@ export default function AdsLeadForm({
       const phoneNumber = toIndiaE164(form.mobile);
       const email = form.email.trim() || undefined;
       gtagSetUserData({ phoneNumber, email });
-      gtagAdsConversion(AW_CONVERSIONS.demoForm);
+      gtagAdsConversion(AW_CONVERSIONS.demoForm, {
+        transaction_id: `${formId}-${phoneNumber || form.mobile}`,
+      });
       gtagEvent('ads_form_submit', {
         page_path: '/salon-software',
         form_name: 'ads_inquiry',
