@@ -43,6 +43,7 @@ export default [
         screen: "readonly",
         requestAnimationFrame: "readonly",
         cancelAnimationFrame: "readonly",
+        IntersectionObserver: "readonly",
       },
     },
     rules: {
